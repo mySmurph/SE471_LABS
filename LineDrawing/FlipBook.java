@@ -15,16 +15,16 @@ public class FlipBook implements Runnable{
 	public void setStopped(boolean stopped) {
 		this.stopped = stopped;
 	}
-	
+
 	@Override
 	public void run() {
 		while(true){
 			if(!stopped){
-				sketch.repaint();
 				sketch.moreLines();
+				sketch.repaint();
 			}
 			try {
-				Thread.sleep(450);
+				Thread.sleep(22);
 			} catch (Exception e) {}
 		}
 	}
