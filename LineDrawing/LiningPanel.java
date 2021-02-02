@@ -11,17 +11,28 @@ public class LiningPanel extends javax.swing.JPanel{
 	private int lines;
 	private Color rgbColor[];
 
+	/**
+	 * Constructor
+	 */
 	public LiningPanel() {
 		lines = 0;
 		rgbColor = new Color[(int)LIMIT];
 		newRandomColor();
 	}
 
+	/**
+	 * incriments the number of lines to be drawn, resets when the limit is hit
+	 * invokes newRandomColor()
+	 */
 	public void moreLines(){
 		++lines;
 		lines = (int)(lines%LIMIT);
 		newRandomColor();
 	}
+
+	/**
+	 * makes a new color at the index of lines
+	 */
 	private void newRandomColor(){
 		Random random = new Random();
 		int red = random.nextInt(255);
@@ -30,7 +41,7 @@ public class LiningPanel extends javax.swing.JPanel{
 		rgbColor[lines] = new Color(red, green, blue);
 	}
 
-	// public void run()
+	@Override
 	public void paintComponent(Graphics g)
 	{
 		super.paintComponent(g);
