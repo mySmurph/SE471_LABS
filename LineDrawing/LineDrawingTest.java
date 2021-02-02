@@ -1,3 +1,10 @@
+/**
+ * SE471 - Lab0
+ * Purpose: 
+ * 	1)	learn/recall basic Java programming and understand how the GUI event dispatch thread works.
+ * 	2)
+ * 
+ */
 package LineDrawing;
 
 import javax.swing.JFrame;

@@ -45,7 +45,7 @@ public class FlipBook implements Runnable{
 				sketch.repaint();
 			}
 			try {
-				Thread.sleep(22);
+				Thread.sleep(125);
 			} catch (Exception e) {}
 		}
 	}

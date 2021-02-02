@@ -17,7 +17,9 @@ public class ControlPanel extends javax.swing.JPanel implements ActionListener {
 	 */
 	public ControlPanel(FlipBook itemBeingControlled) {
 		animation = itemBeingControlled;
-		controlButton = new JButton("Stop");
+		controlButton = new JButton("Draw");
+		animation.setStopped(true);
+		
 		controlButton.addActionListener(this);
 		this.add(controlButton);
 	}

@@ -7,8 +7,20 @@ import java.util.Random;
 import javax.swing.JPanel;
 
 public class LiningPanel extends javax.swing.JPanel{
-	private static final double LIMIT = 75.0;
+	/**
+	 * const LIMIT
+	 * the upper limit of the nmber of lines to be drawn
+	 */
+	private static final double LIMIT = 15.0;
+
+	/**
+	 * the current number of lines to be drawn
+	 */
 	private int lines;
+
+	/**
+	 * array<Color>
+	 */
 	private Color rgbColor[];
 
 	/**
@@ -16,7 +28,7 @@ public class LiningPanel extends javax.swing.JPanel{
 	 */
 	public LiningPanel() {
 		lines = 0;
-		rgbColor = new Color[(int)LIMIT];
+		rgbColor = new Color[(int)LIMIT+1];
 		newRandomColor();
 	}
 
@@ -25,8 +37,7 @@ public class LiningPanel extends javax.swing.JPanel{
 	 * invokes newRandomColor()
 	 */
 	public void moreLines(){
-		++lines;
-		lines = (int)(lines%LIMIT);
+		lines = (int)((++lines)%(LIMIT+1.0));
 		newRandomColor();
 	}
 
