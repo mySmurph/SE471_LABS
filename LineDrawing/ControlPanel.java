@@ -1,8 +1,6 @@
 package LineDrawing;
-
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import javax.swing.JButton;
 
 public class ControlPanel extends javax.swing.JPanel implements ActionListener {
@@ -19,7 +17,7 @@ public class ControlPanel extends javax.swing.JPanel implements ActionListener {
 		animation = itemBeingControlled;
 		controlButton = new JButton("Draw");
 		animation.setStopped(true);
-		
+
 		controlButton.addActionListener(this);
 		this.add(controlButton);
 	}
@@ -37,8 +35,5 @@ public class ControlPanel extends javax.swing.JPanel implements ActionListener {
 			animation.setStopped(true);
 			controlButton.setText("Resume");
 		}
-
 	}
-
-
 }

@@ -8,7 +8,6 @@
  * Sirena Murphree	murph135
  */
 package LineDrawing;
-
 import javax.swing.JFrame;
 import java.awt.BorderLayout;
 
