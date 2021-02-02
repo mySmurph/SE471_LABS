@@ -2,8 +2,10 @@
  * SE471 - Lab0
  * Purpose: 
  * 	1)	learn/recall basic Java programming and understand how the GUI event dispatch thread works.
- * 	2)
+ * 	2)	Use a Runnable  thread 
  * 
+ * Lauren Gonzalez	gonza823
+ * Sirena Murphree	murph135
  */
 package LineDrawing;
 
