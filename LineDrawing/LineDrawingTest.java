@@ -1,60 +1,24 @@
 package LineDrawing;
 
-import java.awt.BorderLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
-import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JPanel;
+import java.awt.BorderLayout;
 
+public class LineDrawingTest {
 
-public class LineDrawingTest extends JFrame implements ActionListener{
+    public static void main(String[] args) {
 
-	private static final long serialVersionUID = 1L;
+        JFrame application = new JFrame();
+        LiningPanel panel = new LiningPanel();
+		FlipBook animation = new FlipBook(panel);
 
-	private JButton playButton;
-	private boolean isPlaying;
-	private Thread rainbow;
+		application.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-	public LineDrawingTest() {
-
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-		JPanel buttonPanel = new JPanel();
-		playButton = new JButton("Start");
-		playButton.addActionListener(this);
-		buttonPanel.add(playButton);
-		getContentPane().add(buttonPanel, BorderLayout.NORTH);
-
-		Runnable panel = new LiningPanel();
-		rainbow = new Thread(panel);
-
-		getContentPane().add(((LiningPanel) panel).getPanel(), BorderLayout.CENTER);
-		this.setSize(300, 350);
-		this.setTitle("Lining Art");
-		this.setVisible(true);
-	}
-		/**
-	 * Shuffles  and repaints the panels with new cards
-	 * @param    e    event handler
-	 */
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		if(isPlaying){
-			//stop
-			playButton.setText("Start");
-		}else{
-			//go
-			playButton.setText("Stop");
-		}
-		isPlaying = !isPlaying; 
-	}
-
-
-	public static void main(String[] args) {
-		new LineDrawingTest();
-
-	}
-
+		application.getContentPane().add(new ControlPanel(animation), BorderLayout.NORTH);
+        application.getContentPane().add(panel,  BorderLayout.CENTER);
+        application.setSize(300, 350);
+        application.setTitle("Lining Art");
+		application.setVisible(true);
+		
+		animation.run();
+    }
 }
