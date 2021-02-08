@@ -33,8 +33,8 @@ public class Highway extends Route {
 	 */
 	public Highway(Address start, Address end, CardinalDirection direction, int speed_limit) {
 		super(start, end);
-		this.setDirection(direction);
-		this.setSpeed_limit(speed_limit);
+		this.direction = direction;
+		this.speed_limit = speed_limit;
 	}
 
 	/**
@@ -45,24 +45,9 @@ public class Highway extends Route {
 	}
 
 	/**
-	 * @param direction the direction to set
-	 */
-	public void setDirection(CardinalDirection direction) {
-		this.direction = direction;
-	}
-
-	/**
 	 * @return the speed_limit
 	 */
 	public int getSpeed_limit() {
 		return speed_limit;
 	}
-
-	/**
-	 * @param speed_limit the speed_limit to set
-	 */
-	public void setSpeed_limit(int speed_limit) {
-		this.speed_limit = speed_limit;
-	}
-
 }

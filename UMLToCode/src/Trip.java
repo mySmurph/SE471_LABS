@@ -23,8 +23,8 @@ public class Trip {
 	 * @param destination	 the trip's destination
 	 */
 	public Trip(String origin, String destination) {
-		this.setOrigin(origin);
-		this.setDestination(destination);
+		this.origin = origin;
+		this.destination = destination;
 		this.scheduled_for = new ArrayList<Schedule>();
 	}
 	
@@ -34,28 +34,14 @@ public class Trip {
 	public String getOrigin() {
 		return origin;
 	}
-	
-	/**
-	 * @param origin the origin to set
-	 */
-	public void setOrigin(String origin) {
-		this.origin = origin;
-	}
-	
+
 	/**
 	 * @return the destination
 	 */
 	public String getDestination() {
 		return destination;
 	}
-	
-	/**
-	 * @param destination the destination to set
-	 */
-	public void setDestination(String destination) {
-		this.destination = destination;
-	}
-	
+		
 	/**
 	 * @param scheduled_event the Schedule to be added to scheduled_for
 	 */

@@ -20,8 +20,8 @@ public class Bus extends Vehicle{
 	 */
 	public Bus(String maker, String model, int year, String VIN, String PlateNO) {
 		super(maker, model, year);
-		this.setPlateNO(PlateNO);
-		this.setVIN(VIN);
+		this.PlateNO = PlateNO;
+		this.VIN = VIN;
 	}
 
 	/**
@@ -32,25 +32,9 @@ public class Bus extends Vehicle{
 	}
 
 	/**
-	 * @param VIN the VIN to set
-	 */
-	public void setVIN(String vIN) {
-		VIN = vIN;
-	}
-
-	/**
 	 * @return the plateNO
 	 */
 	public String getPlateNO() {
 		return PlateNO;
 	}
-
-	/**
-	 * @param plateNO the plateNO to set
-	 */
-	public void setPlateNO(String plateNO) {
-		PlateNO = plateNO;
-	}
-
-	
 }

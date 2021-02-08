@@ -29,9 +29,9 @@ public class Vehicle {
 	 * @param year	vehicle manufactured year
 	 */
 	public Vehicle(String maker, String model, int year) {
-		this.setMaker(maker);
-		this.setModel(model);
-		this.setYear(year);
+		this.maker = maker;
+		this.model = model;
+		this.year = year;
 		this.scheduled_via = new ArrayList<Schedule>();
 	}
 
@@ -43,13 +43,6 @@ public class Vehicle {
 	}
 
 	/**
-	 * @param maker the maker to set
-	 */
-	public void setMaker(String maker) {
-		this.maker = maker;
-	}
-
-	/**
 	 * @return the model
 	 */
 	public String getModel() {
@@ -57,24 +50,10 @@ public class Vehicle {
 	}
 
 	/**
-	 * @param model the model to set
-	 */
-	public void setModel(String model) {
-		this.model = model;
-	}
-
-	/**
 	 * @return the year
 	 */
 	public int getYear() {
 		return year;
-	}
-
-	/**
-	 * @param year the year to set
-	 */
-	public void setYear(int year) {
-		this.year = year;
 	}
 	
 	/**
