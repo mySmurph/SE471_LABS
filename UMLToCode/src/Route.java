@@ -1,13 +1,31 @@
-package Route;
+import java.util.ArrayList;
 
-class Route {
+public class Route {
 	
+	/**
+	 * the Address of the route's start_point
+	 */
 	private Address start_point;
+	
+	/**
+	 * the Address of the route's end_point
+	 */
 	private Address end_point;
+	
+	/**
+	 * the list of schedules that take this route
+	 */
+	private ArrayList<Schedule> scheduled_on;
 
+	/**
+	 * constructor
+	 * @param start the Address of the route's start_point
+	 * @param end	the Address of the route's end_point
+	 */
 	public Route(Address start, Address end) {
 		this.setStart_point(start);
 		this.setEnd_point(end);
+		this.scheduled_on = new ArrayList<Schedule>();
 	}
 
 	/**
@@ -36,6 +54,13 @@ class Route {
 	 */
 	public void setEnd_point(Address end_point) {
 		this.end_point = end_point;
+	}
+	
+	/**
+	 * @param scheduled_event the Schedule to be added to scheduled_on
+	 */
+	public void pushSchedule(Schedule scheduled_event) {
+		this.scheduled_on.add(scheduled_event);
 	}
 	
 

@@ -1,7 +1,8 @@
-package Route;
-
 public class Trail extends Route {
 
+	/**
+	 * enumeration type of different terrains a trail can be  
+	 */
 	public enum Terrain {
 		FOOT_TRAIL,
 		BIKEWAY,
@@ -11,9 +12,23 @@ public class Trail extends Route {
 		
 	}
 
+	/**
+	 * name of the park the trail goes through
+	 */
 	private String park_name;
+	
+	/**
+	 * terrain of the trail
+	 */
 	private Terrain primary_terrain;
 	
+	/**
+	 * constructor
+	 * @param start the Address of the route's start_point
+	 * @param end	the Address of the route's end_point
+	 * @param park_name	name of the park the trail goes through
+	 * @param primary_terrain	terrain of the trail
+	 */
 	public Trail(Address start, Address end, String park_name, Terrain primary_terrain) {
 		super(start, end);
 		this.setPark_name(park_name);
