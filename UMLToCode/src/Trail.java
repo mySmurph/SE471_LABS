@@ -62,5 +62,4 @@ public class Trail extends Route {
 	public void setPrimary_terrain(Terrain primary_terrain) {
 		this.primary_terrain = primary_terrain;
 	}
-
 }

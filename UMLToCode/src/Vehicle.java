@@ -62,6 +62,4 @@ public class Vehicle {
 	public void pushSchedule(Schedule scheduled_event) {
 		this.scheduled_via.add(scheduled_event);
 	}
-	
-
 }

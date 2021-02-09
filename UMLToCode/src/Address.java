@@ -55,5 +55,4 @@ public class Address {
 	public void print() {
 		System.out.printf("%s\n%s, %s %s\n%s", street_address,  city, state_providence, postal_code, country);
 	}
-
 }

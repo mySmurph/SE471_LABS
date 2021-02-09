@@ -112,5 +112,4 @@ public class Schedule {
 	public void setVia_vehicle(Vehicle via_vehicle) {
 		this.via_vehicle = via_vehicle;
 	}
-
 }
