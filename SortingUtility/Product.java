@@ -58,7 +58,7 @@ public class Product {
 	 * @param name the name to set
 	 */
 	public void setproductName(String name) {
-		this.name = name;
+		this.productName = name;
 	}
 	
 	/**
