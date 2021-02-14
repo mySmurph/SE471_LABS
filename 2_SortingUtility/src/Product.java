@@ -6,7 +6,7 @@ public class Product {
 	/**
 	 * general product ID 
 	 */
-	private String productID;
+	private int productID;
 	
 	
 	/**
@@ -26,7 +26,7 @@ public class Product {
 	 * @param productName	the product name
 	 * @param productPrice	the product price
 	 */
-	public Product(String productID, String productName, float productPrice) {
+	public Product(int productID, String productName, float productPrice) {
 		// TODO Auto-generated constructor stub
 		this.productID = productID;
 		this.productName = productName;
@@ -37,7 +37,7 @@ public class Product {
 	/**
 	 * @return the productID
 	 */
-	public String getproductID(){
+	public int getproductID(){
 		return productID;
 	}
 	
