@@ -1,3 +1,5 @@
+package src;
+
 
 public class Product {
 	
@@ -8,7 +10,7 @@ public class Product {
 	
 	
 	/**
-	 * general product price 
+	 * general product price s
 	 */
 	private String productName;
 	
