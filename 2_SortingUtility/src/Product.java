@@ -26,6 +26,9 @@ public class Product {
 	 * @param productName	the product name
 	 * @param productPrice	the product price
 	 */
+	public Product(int productID, String productName, double productPrice) {
+		this(productID, productName, (float) productPrice);
+	}
 	public Product(int productID, String productName, float productPrice) {
 		// TODO Auto-generated constructor stub
 		this.productID = productID;
@@ -37,21 +40,21 @@ public class Product {
 	/**
 	 * @return the productID
 	 */
-	public int getproductID(){
+	public int getProductID(){
 		return productID;
 	}
 	
 	/**
 	 * @return the product name
 	 */
-	public String getproductName() {
+	public String getProductName() {
 		return productName;
 	}
 	
 	/**
 	 * @return the product price
 	 */
-	public float getproductPrice() {
+	public float getProductPrice() {
 		return productPrice;
 	}
 
@@ -59,7 +62,7 @@ public class Product {
 	/**
 	 * @param name the name to set
 	 */
-	public void setproductName(String name) {
+	public void setProductName(String name) {
 		this.productName = name;
 	}
 	
@@ -69,6 +72,10 @@ public class Product {
 	
 	public void setProductPrice(float price) {
 		this.productPrice = price;
+	}
+	
+	public String toString() {
+		return String.valueOf(productID) + " - " + productName + " - $" + String.valueOf(productPrice); 
 	}
 	
 }

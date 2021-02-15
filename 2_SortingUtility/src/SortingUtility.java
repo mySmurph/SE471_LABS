@@ -1,13 +1,13 @@
 package src;
 
-import java.util.ArrayList;
+import java.util.List;
 import java.util.Collections;
 
 public class SortingUtility {
 
 	public SortingUtility() {}
 	
-	public ArrayList<Product> sort(ArrayList<Product> items, int sortingApproach){
+	public List<Product> sort(List<Product> items, int sortingApproach){
 		switch(sortingApproach) {
 		case 1:		return bubbleSort(items);
 		case 2: 	return quickSort(items);
@@ -15,11 +15,11 @@ public class SortingUtility {
 		return items;
 	}
 	
-	private ArrayList<Product> bubbleSort(ArrayList<Product>  items){
+	private List<Product> bubbleSort(List<Product>  items){
 		int max = items.size();
 		for(int i = 0; i < max-1; i++) {
 			for(int ii = i+1; ii < max ; ii++) {
-				if(items.get(i).getproductID() < items.get(ii).getproductID()) {
+				if(items.get(i).getProductID() < items.get(ii).getProductID()) {
 					Collections.swap(items, i, ii);
 				}
 			}
@@ -27,20 +27,20 @@ public class SortingUtility {
 		return items;
 	}
 	
-	private ArrayList<Product> quickSort(ArrayList<Product>  items){
-		quickSort(items, 0, items.size());
+	private List<Product> quickSort(List<Product>  items){
+		quickSort(items, 0, items.size()-1);
 		return items;
 	}
 	
-	private void quickSort(ArrayList<Product>  items, int first, int last) {
+	private void quickSort(List<Product>  items, int first, int last) {
 		int temp;
 		int i = first;
 		int ii = last;
-		int pivotID = items.get((first + last)/2).getproductID();
+		int pivotID = items.get((first + last)/2).getProductID();
 		do {
-			while(items.get(i).getproductID() < pivotID)
+			while(items.get(i).getProductID() < pivotID)
 				i++;
-			while(items.get(ii).getproductID() > pivotID)
+			while(items.get(ii).getProductID() > pivotID)
 				ii--;
 			if(i <= ii) {
 				Collections.swap(items, i, ii);
