@@ -3,7 +3,7 @@ package src;
 import java.util.List;
 import java.util.Collections;
 
-public class SortingUtility {
+public class SortingUtility implements ISortingUtility {
 
 	public SortingUtility() {}
 	

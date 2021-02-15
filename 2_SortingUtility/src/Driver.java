@@ -23,7 +23,7 @@ public class Driver {
 		items.add(new Product( 6245816, "Batman Vol. 5: Zero Year - Dark City", 11.13));
 		items.add(new Product( 1165822, "Lamentations of the Flame Princess", 17.08));
 
-		SortingUtility sul = new SortingUtilityLog();
+		ISortingUtility sul = new SortingUtilityLog();
 		Scanner scanner = new Scanner(System.in);
 		int menuSelection;
 		do {
