@@ -1,17 +1,41 @@
 package src;
 
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.Collections;
 import java.util.List;
 
 public class SortingUtilityLog implements ISortingUtility {
+	
+	private SortingUtility sortingUtil_original;
+	private Class suClass;
+	private Method sortMethod;
 
-
+	public SortingUtilityLog(SortingUtility su) {
+		this.sortingUtil_original = su;
+	}
+	
+	private void reflection() throws NoSuchMethodException, InvocationTargetException{
+		suClass = sortingUtil_original.getClass();
+		sortMethod = suClass.getMethod("bubbleSort");
+	}
+	
 	public List<Product> sort(List<Product> items, int sortingApproach){
-		switch(sortingApproach) {
-		case 1:		items = bubbleSort(items);
-			break;
-		case 2: 	items = quickSort(items);
-			break;
+		try {
+			this.reflection();
+			switch(sortingApproach) {
+			case 1:		items = bubbleSort(items);
+				break;
+			case 2: 	items = quickSort(items);
+				break;
+		} catch (NoSuchMethodException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (InvocationTargetException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
 		}
 		return items;
 	}
