@@ -23,23 +23,15 @@ public class SortingUtilityLog implements ISortingUtility {
 	public List<Product> sort(List<Product> items, int sortingApproach){
 		try {
 			this.reflection();
-			switch(sortingApproach) {
-			case 1:		items = bubbleSort(items);
-				break;
-			case 2: 	items = quickSort(items);
-				break;
-		} catch (NoSuchMethodException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			this.sortingUtil_original = (SortingUtility) sortMethod.invoke(sortingUtil_original);	
+			}catch (NoSuchMethodException e) {
+			//e.printStackTrace();
 		} catch (InvocationTargetException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-		}
+			//e.printStackTrace();
+		} catch(IllegalAccessException e) {}
 		return items;
 	}
-	
+	/*
 	private List<Product> bubbleSort(List<Product>  items){
 		int max = items.size();
 		for(int i = 0; i < max-1; i++) {
@@ -52,7 +44,7 @@ public class SortingUtilityLog implements ISortingUtility {
 		bubbleSortPrint(items);
 		return items;
 	}
-	
+	*/
 	private List<Product> quickSort(List<Product>  items){
 		quickSort(items, 0, items.size()-1);
 		quickSortPrint(items);
