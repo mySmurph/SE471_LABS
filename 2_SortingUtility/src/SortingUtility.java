@@ -9,8 +9,10 @@ public class SortingUtility {
 	
 	public List<Product> sort(List<Product> items, int sortingApproach){
 		switch(sortingApproach) {
-		case 1:		return bubbleSort(items);
-		case 2: 	return quickSort(items);
+		case 1:		items = bubbleSort(items);
+			break;
+		case 2: 	items = quickSort(items);
+			break;
 		}
 		return items;
 	}
@@ -19,7 +21,7 @@ public class SortingUtility {
 		int max = items.size();
 		for(int i = 0; i < max-1; i++) {
 			for(int ii = i+1; ii < max ; ii++) {
-				if(items.get(i).getProductID() < items.get(ii).getProductID()) {
+				if(items.get(i).getProductID() > items.get(ii).getProductID()) {
 					Collections.swap(items, i, ii);
 				}
 			}
@@ -33,7 +35,6 @@ public class SortingUtility {
 	}
 	
 	private void quickSort(List<Product>  items, int first, int last) {
-		int temp;
 		int i = first;
 		int ii = last;
 		int pivotID = items.get((first + last)/2).getProductID();
