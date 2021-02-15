@@ -8,23 +8,27 @@ import java.util.List;
 public class SortingUtilityLog implements ISortingUtility {
 	
 	private SortingUtility sortingUtil_original;
-	private Class suClass;
+	private Class<? extends SortingUtility> suClass;
 	private Method sortMethod;
 
 	public SortingUtilityLog(SortingUtility su) {
 		this.sortingUtil_original = su;
 	}
 	
-	private void reflection() throws NoSuchMethodException, InvocationTargetException{
+	private void reflection(List<Product> items, int sortingApproach) throws NoSuchMethodException, InvocationTargetException{
 		suClass = sortingUtil_original.getClass();
-		sortMethod = suClass.getMethod("bubbleSort");
+		Class[] param = new Class[2];
+		param[0] = items.getClass();
+		param[1] = int.class;
+		sortMethod = suClass.getMethod("sort", param);
+		System.out.println(sortMethod.toString());
 	}
 	
 	public List<Product> sort(List<Product> items, int sortingApproach){
 		try {
-			this.reflection();
-			this.sortingUtil_original = (SortingUtility) sortMethod.invoke(sortingUtil_original);	
-			}catch (NoSuchMethodException e) {
+			this.reflection(items, sortingApproach);
+			this.sortingUtil_original = (SortingUtility) sortMethod.invoke(sortingUtil_original, items, sortingApproach);	
+		}catch (NoSuchMethodException e) {
 			//e.printStackTrace();
 		} catch (InvocationTargetException e) {
 			//e.printStackTrace();
