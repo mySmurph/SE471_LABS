@@ -1,14 +1,12 @@
 package src;
 
-
 public class Product {
 	
 	/**
 	 * general product ID 
 	 */
 	private int productID;
-	
-	
+		
 	/**
 	 * general product price s
 	 */
@@ -18,10 +16,9 @@ public class Product {
 	 * 
 	 */
 	private float productPrice;
-	
-	
+		
 	/**
-	 * constructor
+	 * Overloaded constructor
 	 * @param productID		the product ID
 	 * @param productName	the product name
 	 * @param productPrice	the product price
@@ -35,7 +32,6 @@ public class Product {
 		this.productName = productName;
 		this.productPrice = productPrice;
 	}
-	
 	
 	/**
 	 * @return the productID
@@ -58,7 +54,6 @@ public class Product {
 		return productPrice;
 	}
 
-	
 	/**
 	 * @param name the name to set
 	 */
@@ -69,13 +64,14 @@ public class Product {
 	/**
 	 * @param price the price to set
 	 */
-	
 	public void setProductPrice(float price) {
 		this.productPrice = price;
 	}
-	
+
+	/**
+	 * @return String that describes the product
+	 */
 	public String toString() {
 		return String.valueOf(productID) + " - " + productName + " - $" + String.valueOf(productPrice); 
 	}
-	
 }

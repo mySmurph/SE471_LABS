@@ -3,7 +3,6 @@ package src;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.Random;
 import java.util.Scanner;
 
 public class Driver {
@@ -23,7 +22,7 @@ public class Driver {
 		items.add(new Product( 6245816, "Batman Vol. 5: Zero Year - Dark City", 11.13));
 		items.add(new Product( 1165822, "Lamentations of the Flame Princess", 17.08));
 
-		ISortingUtility sul = SuperSortUtility.getSortUtility();
+		ISortingUtility sul = SuperSortingUtility.getSortingUtility();
 		Scanner scanner = new Scanner(System.in);
 		int menuSelection;
 		do {
@@ -32,7 +31,7 @@ public class Driver {
 			switch(menuSelection) {
 			case 1: case 2: items = sul.sort(items, menuSelection);
 							break;
-			case 3:			shuffleList(items);
+			case 3:			shuffleList((List)items);
 			case 4:			printList(items);
 							break;
 							default: break;
@@ -41,33 +40,42 @@ public class Driver {
 		}while(menuSelection != 0);
 
 	}
+	
+	/**
+	 * print driver menu
+	 */
 	public static void printMenu() {
 
-		System.out.println("-----------------------------------------");
-		System.out.println("Menu:");
-		System.out.printf("%4d %s\n", 1, "Sort List using BubleSort");
-		System.out.printf("%4d %s\n", 2, "Sort List using QuickSort");
-		System.out.printf("%4d %s\n", 3, "Shuffle and Print List");
-		System.out.printf("%4d %s\n", 4, "Print List");
-		System.out.printf("%4d %s\n", 0, "Exit");
+		System.out.println("\n-----------------------------------------");
+		System.out.printf("%-19s [%d] %-20s\n","Menu:", 0, "Exit");
+		System.out.printf("[%d] %-15s [%d] %-20s\n", 1, "Sort BubleSort", 3, "Shuffle & Print List");
+		System.out.printf("[%d] %-15s [%d] %-20s\n", 2, "Sort QuickSort", 4, "Print List");
 		System.out.println("-----------------------------------------");
 		System.out.print("Selection: ");
 		
 	}
 	
+	/**
+	 * print product list using System.out.println(Product::toString())
+	 * @param items
+	 */
 	public static void printList(List<Product> items) {
-		System.out.println("Defualt print using S.O.PL(Prodct.toString())");
+		System.out.println("** Default print using System.out.println(Prodct::toString())");
 		for(Object item: items) {
 			System.out.println(item.toString());
 		}
 	}
 	
-	public static void shuffleList(List<Product> list) {
-		System.out.println("\nShuffle List");
-		int limmit = list.size();
+	/**
+	 * Shuffle List
+	 * @param items
+	 */
+	public static void shuffleList(List<Object> items) {
+		System.out.println("\n** Shuffle List");
+		int limmit = items.size();
 		for(int i = 0; i < limmit; i++) {
 			int ii = (int)Math.abs((i+Math.random()*(limmit-1-i)));
-			Collections.swap(list, i, ii);
+			Collections.swap(items, i, ii);
 		}
 	}
 

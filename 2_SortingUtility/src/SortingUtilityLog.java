@@ -2,25 +2,40 @@ package src;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-import java.util.Collections;
 import java.util.List;
 
 public class SortingUtilityLog implements ISortingUtility {
-	
-	private SortingUtility sortingUtil_original;
-//	private Method sortMethod;
+	/**
+	 * the original class that this is based on
+	 */
+	private ISortingUtility sortingUtil_original;
 
-	public SortingUtilityLog(SortingUtility su) {
+	/**
+	 * Constructor
+	 * @param su 
+	 */
+	public SortingUtilityLog(ISortingUtility su) {
 		this.sortingUtil_original = su;
 	}
 	
+	/**
+	 * Get the specified sort method
+	 * @param method
+	 * @return Method, the found method
+	 * @throws NoSuchMethodException
+	 * @throws InvocationTargetException
+	 */
 	private Method reflectionSortMethod(String method) throws NoSuchMethodException, InvocationTargetException{
 		Method sortMethod = sortingUtil_original.getClass().getDeclaredMethod(method, List.class);
 		sortMethod.setAccessible(true);
 		return sortMethod;
-//		System.out.println(sortMethod.toString());
 	}
 	
+	/**
+	 * Sort a list of Products
+	 * @param	items list of products to be sorted
+	 * @param	sortingApproach the sort method to be used 1 = bubble sort, 2 = quick sort  	
+	 */
 	public List<Product> sort(List<Product> items, int sortingApproach){
 		try {
 
@@ -42,6 +57,10 @@ public class SortingUtilityLog implements ISortingUtility {
 		return items;
 	}
 	
+	/**
+	 * Print the formatted list
+	 * @param items
+	 */
 	private void bubbleSortPrint(List<Product> items) {
 		System.out.println("\nBubble Sort Called");
 		System.out.printf("%-11s %-50s %-7s\n", "Product ID", "Product Name", "Price");
@@ -50,6 +69,11 @@ public class SortingUtilityLog implements ISortingUtility {
 			System.out.printf("%-11d %-50s $%6.2f\n", item.getProductID(), item.getProductName(), item.getProductPrice());
 		}
 	}
+	
+	/**
+	 * Print the formatted list
+	 * @param items
+	 */
 	private void quickSortPrint(List<Product> items) {
 		System.out.println("\nQuick Sort Called");
 		System.out.printf("%-50s %-11s %-7s\n", "Product Name", "Product ID", "Price");
@@ -58,5 +82,4 @@ public class SortingUtilityLog implements ISortingUtility {
 			System.out.printf("%-50s %-11d $%6.2f\n", item.getProductName(), item.getProductID(), item.getProductPrice());
 		}
 	}
-	
 }
