@@ -1,7 +1,7 @@
 package src;
 
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
+import java.lang.reflect.*;
+//import java.lang.reflect.Method;
 import java.util.Collections;
 import java.util.List;
 
@@ -17,21 +17,22 @@ public class SortingUtilityLog implements ISortingUtility {
 	
 	private void reflection(List<Product> items, int sortingApproach) throws NoSuchMethodException, InvocationTargetException{
 		suClass = sortingUtil_original.getClass();
-		Class[] param = new Class[2];
-		param[0] = items.getClass();
-		param[1] = int.class;
-		sortMethod = suClass.getMethod("sort", param);
+//		sortMethod = suClass.getMethod("sort", List.class, int.class);
+		sortMethod = suClass.getDeclaredMethod("foo", int.class, int.class);
+		sortMethod.setAccessible(true);
 		System.out.println(sortMethod.toString());
 	}
 	
 	public List<Product> sort(List<Product> items, int sortingApproach){
 		try {
 			this.reflection(items, sortingApproach);
-			this.sortingUtil_original = (SortingUtility) sortMethod.invoke(sortingUtil_original, items, sortingApproach);	
+//			items = (List<Product>) sortMethod.invoke(sortingUtil_original, items, sortingApproach);	
+			sortMethod.invoke(sortingUtil_original,1, 2);
 		}catch (NoSuchMethodException e) {
-			//e.printStackTrace();
+			System.out.println("No Such Method");
+			e.printStackTrace();
 		} catch (InvocationTargetException e) {
-			//e.printStackTrace();
+			e.printStackTrace();
 		} catch(IllegalAccessException e) {}
 		return items;
 	}

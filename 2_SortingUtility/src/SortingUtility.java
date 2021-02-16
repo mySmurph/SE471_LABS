@@ -29,6 +29,10 @@ public class SortingUtility implements ISortingUtility {
 		return items;
 	}
 	
+	private void foo(int x, int y) {
+		System.out.println("--- Foo found ---");
+	}
+	
 	private List<Product> quickSort(List<Product>  items){
 		quickSort(items, 0, items.size()-1);
 		return items;
