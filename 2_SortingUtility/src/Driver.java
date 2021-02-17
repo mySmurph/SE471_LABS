@@ -48,7 +48,7 @@ public class Driver {
 
 		System.out.println("\n-----------------------------------------");
 		System.out.printf("%-19s [%d] %-20s\n","Menu:", 0, "Exit");
-		System.out.printf("[%d] %-15s [%d] %-20s\n", 1, "Sort BubleSort", 3, "Shuffle & Print List");
+		System.out.printf("[%d] %-15s [%d] %-20s\n", 1, "Sort BubbleSort", 3, "Shuffle & Print List");
 		System.out.printf("[%d] %-15s [%d] %-20s\n", 2, "Sort QuickSort", 4, "Print List");
 		System.out.println("-----------------------------------------");
 		System.out.print("Selection: ");
