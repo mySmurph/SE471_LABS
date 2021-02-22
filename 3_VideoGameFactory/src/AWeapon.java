@@ -24,14 +24,12 @@ public abstract class AWeapon {
 	private DamageType type;
 	private WeaponType weaponType;
 	private String name;
-	private String imgPath;
 	
-	public AWeapon(String name, int initialDamage, WeaponType weaponType, DamageType damageType, String imgPath) {
+	public AWeapon(String name, int initialDamage, WeaponType weaponType, DamageType damageType) {
 		this.name = name;
 		this.damage = initialDamage;
 		this.weaponType = weaponType;
 		this.type = damageType;
-		this.imgPath = imgPath;
 	}
 	
 	public int getDamage() {
@@ -40,10 +38,6 @@ public abstract class AWeapon {
 	
 	public DamageType getDamageType() {
 		return type;
-	}
-	
-	public String getIcon() {
-		return imgPath;
 	}
 	
 	public String toString() {

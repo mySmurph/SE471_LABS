@@ -14,13 +14,11 @@ public abstract class ACharacter {
 	private String name;
 	private int lvl;
 	private CharacterClass charClass;
-	private String imgPath;
 	
-	public ACharacter(String name, CharacterClass charClass, String imgPath){
+	public ACharacter(String name, CharacterClass charClass){
 		this.name = name;
 		this.charClass = charClass;
 		this.lvl = 1;
-		this.imgPath = imgPath;
 	}
 	
 	public String toString() {
@@ -31,7 +29,4 @@ public abstract class ACharacter {
 		lvl++;
 	}
 	
-	public String getAvatar() {
-		return imgPath;
-	}
 }
