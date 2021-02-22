@@ -28,5 +28,8 @@ public abstract class ACharacter {
 	public void levelUp() {
 		lvl++;
 	}
-	
+	public String greeting() {
+		return null;
+	}
+	public String getName() { return name;}
 }

@@ -16,11 +16,11 @@ public class AdvancedPlayerFactory implements IPlayerFactory {
 	@Override
 	public List<AWeapon> getWeapons() {
 		List<AWeapon> weapons = new ArrayList<AWeapon>();
-		weapons.add(new AdvancedPlayerWeapon("Dragonglass", 1, AWeapon.WeaponType.DAGGER, AWeapon.DamageType.PIERCING));
-		weapons.add(new AdvancedPlayerWeapon("Crossbow", 1, AWeapon.WeaponType.GUN, AWeapon.DamageType.NECROTIC));
-		weapons.add(new AdvancedPlayerWeapon("Heartsbane", 1,  AWeapon.WeaponType.SWORD, AWeapon.DamageType.SLASHING));
-		weapons.add(new AdvancedPlayerWeapon("Ruby Neclace", 1, AWeapon.WeaponType.SPELLFOCUS, AWeapon.DamageType.RADIENT));
-		weapons.add(new AdvancedPlayerWeapon("Longbow", 1,  AWeapon.WeaponType.BOW, AWeapon.DamageType.PIERCING));
+		weapons.add(new AdvancedPlayerWeapon("Dragonglass", AWeapon.WeaponType.DAGGER, AWeapon.DamageType.PIERCING));
+		weapons.add(new AdvancedPlayerWeapon("Crossbow", AWeapon.WeaponType.GUN, AWeapon.DamageType.NECROTIC));
+		weapons.add(new AdvancedPlayerWeapon("Heartsbane", AWeapon.WeaponType.SWORD, AWeapon.DamageType.SLASHING));
+		weapons.add(new AdvancedPlayerWeapon("Ruby Neclace", AWeapon.WeaponType.SPELLFOCUS, AWeapon.DamageType.RADIENT));
+		weapons.add(new AdvancedPlayerWeapon("Longbow", AWeapon.WeaponType.BOW, AWeapon.DamageType.PIERCING));
 		return weapons;
 	}
 

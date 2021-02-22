@@ -3,7 +3,10 @@ public class BeginnerPlayerCharacter extends ACharacter {
 
 	public BeginnerPlayerCharacter(String name, CharacterClass charClass) {
 		super(name, charClass);
-		// TODO Auto-generated constructor stub
+	}
+	
+	public String greeting() {
+		return String.format("%s I'm %s from Futurama. \n", "Good News Everyone!", this.getName());
 	}
 
 }

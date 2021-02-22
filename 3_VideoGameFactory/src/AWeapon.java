@@ -43,4 +43,7 @@ public abstract class AWeapon {
 	public String toString() {
 		return String.format("%-20s [%+2d %-15s]", name, damage, weaponType.toString());
 	}
+	
+	public String getName() { return name;}
+	
 }

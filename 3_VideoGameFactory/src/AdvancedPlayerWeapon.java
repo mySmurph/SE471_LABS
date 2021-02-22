@@ -1,9 +1,8 @@
 
 public class AdvancedPlayerWeapon extends AWeapon {
 
-	public AdvancedPlayerWeapon(String name, int initialDamage, WeaponType weaponType, DamageType damageType) {
-		super(name, initialDamage, weaponType, damageType);
-		// TODO Auto-generated constructor stub
+	public AdvancedPlayerWeapon(String name, WeaponType weaponType, DamageType damageType) {
+		super(name, 1, weaponType, damageType);
 	}
 
 }

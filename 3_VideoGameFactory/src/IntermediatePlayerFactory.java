@@ -16,11 +16,11 @@ public class IntermediatePlayerFactory implements IPlayerFactory {
 	@Override
 	public List<AWeapon> getWeapons() {
 		List<AWeapon> weapons = new ArrayList<AWeapon>();
-		weapons.add(new IntermidiatePlayerWeapon("Wrench", 0, AWeapon.WeaponType.DAGGER, AWeapon.DamageType.BLUDGENING));
-		weapons.add(new IntermidiatePlayerWeapon("Rail Gun", 0, AWeapon.WeaponType.GUN, AWeapon.DamageType.NECROTIC));
-		weapons.add(new IntermidiatePlayerWeapon("Broken Beam", 0,  AWeapon.WeaponType.SWORD, AWeapon.DamageType.SLASHING));
-		weapons.add(new IntermidiatePlayerWeapon("Com", 0, AWeapon.WeaponType.SPELLFOCUS, AWeapon.DamageType.RADIENT));
-		weapons.add(new IntermidiatePlayerWeapon("Standard UN Pistol", 0,  AWeapon.WeaponType.BOW, AWeapon.DamageType.PIERCING));
+		weapons.add(new IntermidiatePlayerWeapon("Wrench", AWeapon.WeaponType.DAGGER, AWeapon.DamageType.BLUDGENING));
+		weapons.add(new IntermidiatePlayerWeapon("Rail Gun", AWeapon.WeaponType.GUN, AWeapon.DamageType.NECROTIC));
+		weapons.add(new IntermidiatePlayerWeapon("Broken Beam", AWeapon.WeaponType.SWORD, AWeapon.DamageType.SLASHING));
+		weapons.add(new IntermidiatePlayerWeapon("Comunicator", AWeapon.WeaponType.SPELLFOCUS, AWeapon.DamageType.RADIENT));
+		weapons.add(new IntermidiatePlayerWeapon("Standard UN Pistol", AWeapon.WeaponType.BOW, AWeapon.DamageType.PIERCING));
 		return weapons;
 	}
 
