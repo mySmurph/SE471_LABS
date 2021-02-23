@@ -1,7 +1,7 @@
 
-public class IntermidiatePlayerCharacter extends ACharacter {
+public class IntermediatePlayerCharacter extends ACharacter {
 
-	public IntermidiatePlayerCharacter(String name, CharacterClass charClass) {
+	public IntermediatePlayerCharacter(String name, CharacterClass charClass) {
 		super(name, charClass);
 	}
 	public String greeting() {
