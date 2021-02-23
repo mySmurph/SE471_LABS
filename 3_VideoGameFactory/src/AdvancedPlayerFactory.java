@@ -3,16 +3,22 @@ import java.util.List;
 
 public class AdvancedPlayerFactory implements IPlayerFactory {
 
+	/**
+	 * @return List<ACharacter> a list of pre-made Game of Thrones themed Characters
+	 */
 	@Override
 	public List<ACharacter> getCharacterModels() {
 		List<ACharacter> futuramaCharacters = new ArrayList<ACharacter>();
-		futuramaCharacters.add(new AdvancedPlayerCharacter("Arya Stark", ACharacter.CharacterClass.ROUGE));
-		futuramaCharacters.add(new AdvancedPlayerCharacter("Jon Snow", ACharacter.CharacterClass.KNIGHT));
-		futuramaCharacters.add(new AdvancedPlayerCharacter("Pyat Pree", ACharacter.CharacterClass.WIZARD));
-		futuramaCharacters.add(new AdvancedPlayerCharacter("Melisandre", ACharacter.CharacterClass.CLAIRIC));
+		futuramaCharacters.add(new AdvancedPlayerCharacter("Arya Stark", ACharacter.Archetype.ROUGE));
+		futuramaCharacters.add(new AdvancedPlayerCharacter("Jon Snow", ACharacter.Archetype.KNIGHT));
+		futuramaCharacters.add(new AdvancedPlayerCharacter("Pyat Pree", ACharacter.Archetype.WIZARD));
+		futuramaCharacters.add(new AdvancedPlayerCharacter("Melisandre", ACharacter.Archetype.CLAIRIC));
 		return futuramaCharacters;
 	}
 
+	/**
+	 * @return List<AWeapon> a list of pre-made Game of Thrones themed Weapons
+	 */
 	@Override
 	public List<AWeapon> getWeapons() {
 		List<AWeapon> weapons = new ArrayList<AWeapon>();

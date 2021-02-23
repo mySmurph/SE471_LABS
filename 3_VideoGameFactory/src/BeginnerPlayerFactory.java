@@ -4,16 +4,22 @@ import java.util.List;
 
 public class BeginnerPlayerFactory implements IPlayerFactory {
 
+	/**
+	 * @return List<ACharacter> a list of pre-made Futurama themed Characters
+	 */
 	@Override
 	public List<ACharacter> getCharacterModels() {
 		List<ACharacter> futuramaCharacters = new ArrayList<ACharacter>();
-		futuramaCharacters.add(new BeginnerPlayerCharacter("Bender", ACharacter.CharacterClass.ROUGE));
-		futuramaCharacters.add(new BeginnerPlayerCharacter("Leela", ACharacter.CharacterClass.KNIGHT));
-		futuramaCharacters.add(new BeginnerPlayerCharacter("Dr. Farnsworth", ACharacter.CharacterClass.WIZARD));
-		futuramaCharacters.add(new BeginnerPlayerCharacter("Dr. Zoidburge", ACharacter.CharacterClass.CLAIRIC));
+		futuramaCharacters.add(new BeginnerPlayerCharacter("Bender", ACharacter.Archetype.ROUGE));
+		futuramaCharacters.add(new BeginnerPlayerCharacter("Leela", ACharacter.Archetype.KNIGHT));
+		futuramaCharacters.add(new BeginnerPlayerCharacter("Dr. Farnsworth", ACharacter.Archetype.WIZARD));
+		futuramaCharacters.add(new BeginnerPlayerCharacter("Dr. Zoidburge", ACharacter.Archetype.CLAIRIC));
 		return futuramaCharacters;
 	}
 
+	/**
+	 * @return List<AWeapon> a list of pre-made Futurama themed Weapons
+	 */
 	@Override
 	public List<AWeapon> getWeapons() {
 		List<AWeapon> weapons = new ArrayList<AWeapon>();
