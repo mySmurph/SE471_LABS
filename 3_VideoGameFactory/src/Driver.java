@@ -1,3 +1,4 @@
+import java.util.List;
 import java.util.Scanner;
 
 public class Driver {
@@ -9,12 +10,12 @@ public class Driver {
 		Scanner scanner = new Scanner(System.in);
 		int menuselection;
 		do {
-			printLevel();
+			printLevelMenu();
 			menuselection = scanner.nextInt();
 			switch(menuselection){
 			case 1: pf = GameUtility.createPlayerFactory(GameUtility.Level.BEGINNER);
 					break;
-			case 2: pf = GameUtility.createPlayerFactory(GameUtility.Level.INTERMIDIATE);
+			case 2: pf = GameUtility.createPlayerFactory(GameUtility.Level.INTERMEDIATE);
 				break;
 			case 3: pf = GameUtility.createPlayerFactory(GameUtility.Level.BEGINNER);
 				break;
@@ -23,9 +24,30 @@ public class Driver {
 			}
 		}while(menuselection != 0);
 		
+		List<ACharacter> charOptions = pf.getCharacterModels();
+		ACharacter myCharacter = null;
+		do {
+			printCharMenu(charOptions);
+			menuselection = scanner.nextInt();
+			if(menuselection >0 && menuselection <= charOptions.size()) {
+				myCharacter = charOptions.get(menuselection + 1);
+			}
+		}while(myCharacter == null);
+		
+		List<AWeapon> wepOptions = pf.getWeapons();
+		AWeapon myWeapon = null;
+		do {
+			printWeaponMenu(wepOptions);
+			menuselection = scanner.nextInt();
+			if(menuselection >0 && menuselection <= wepOptions.size()) {
+				myWeapon = wepOptions.get(menuselection + 1);
+			}
+		}while(myWeapon == null);
+		
+		System.out.println(myCharacter.greeting());
 	}
 	
-	public static void printLevel() {
+	public static void printLevelMenu() {
 
 		System.out.println("\n-----------------------------------------");
 		System.out.printf("%-19s [%d] %-20s\n","Select a level:", 0, "Exit");
@@ -36,24 +58,29 @@ public class Driver {
 		
 	}
 	
-	public static void printChar() {
+	public static void printCharMenu(List<ACharacter> charOptions) {
 		
 		System.out.println("\n-----------------------------------------");
 		System.out.printf("%-19s [%d] %-20s\n","Select a Character:", 0, "Exit");
-		System.out.printf("[%d] %-15s [%d] %-20s\n", 1, "Knight", 3, "Wizard");
-		System.out.printf("[%d] %-15s [%d] %-20s\n", 2, "Cleric", 4, "Rouge");
+		int i = 0;
+		for(ACharacter c : charOptions) {
+			i++;
+			System.out.printf("[%d]\t%s", i,c.toString());
+		}
 		System.out.println("-----------------------------------------");
 		System.out.print("Selection: ");
 	}
 	
 	
-	public static void printWeapon() {
+	public static void printWeaponMenu(List<AWeapon> wepOptions) {
 		
 		System.out.println("\n-----------------------------------------");
 		System.out.printf("%-19s [%d] %-20s\n","Select a Weapon:", 0, "Exit");
-		System.out.printf("[%d] %-15s [%d] %-20s\n", 1, "Sword", 3, "Dagger");
-		System.out.printf("[%d] %-15s [%d] %-20s\n", 2, "Spell Focus", 4, "Bow");
-		System.out.printf("[%d] %-15s [%d] %-20s\n", 5, "Gun");
+		int i = 0;
+		for(AWeapon w : wepOptions) {
+			i++;
+			System.out.printf("[%d]\t%s", i,w.toString());
+		}
 		System.out.println("-----------------------------------------");
 		System.out.print("Selection: ");
 	}
