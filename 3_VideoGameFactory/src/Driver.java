@@ -7,6 +7,10 @@ public class Driver {
 		
 		IPlayerFactory pf = null;
 		
+		/**
+		 * while selection is null determine player selection
+		 */
+		
 		Scanner scanner = new Scanner(System.in);
 		int menuselection;
 		do {
@@ -24,6 +28,10 @@ public class Driver {
 			}
 		}while(pf == null);
 		
+		/**
+		 * get player character model from list
+		 */
+		
 		List<ACharacter> charOptions = pf.getCharacterModels();
 		ACharacter myCharacter = null;
 		do {
@@ -33,6 +41,10 @@ public class Driver {
 				myCharacter = charOptions.get(menuselection - 1);
 			}
 		}while(myCharacter == null);
+		
+		/**
+		 * get player weapon model from list
+		 */
 		
 		List<AWeapon> wepOptions = pf.getWeaponsModels();
 		AWeapon myWeapon = null;
@@ -44,9 +56,17 @@ public class Driver {
 			}
 		}while(myWeapon == null);
 		
+		/**
+		 * print selected greeting based on player input
+		 */
+		
 		System.out.println(myCharacter.greeting());
 	}
 	
+	/**
+	 * print select level menu
+	 */
+
 	public static void printLevelMenu() {
 
 		System.out.println("\n-----------------------------------------");
@@ -57,6 +77,10 @@ public class Driver {
 		System.out.print("Selection: ");
 		
 	}
+	
+	/**
+	 * @param charOptions prints all options in chosen level characters
+	 */
 	
 	public static void printCharMenu(List<ACharacter> charOptions) {
 		
@@ -71,6 +95,9 @@ public class Driver {
 		System.out.print("Selection: ");
 	}
 	
+	/**
+	 * @param wepOptions prints all options in chosen level weapons
+	 */
 	
 	public static void printWeaponMenu(List<AWeapon> wepOptions) {
 		
