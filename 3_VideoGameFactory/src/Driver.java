@@ -17,12 +17,12 @@ public class Driver {
 					break;
 			case 2: pf = GameUtility.createPlayerFactory(GameUtility.Level.INTERMEDIATE);
 				break;
-			case 3: pf = GameUtility.createPlayerFactory(GameUtility.Level.BEGINNER);
+			case 3: pf = GameUtility.createPlayerFactory(GameUtility.Level.ADVANCED);
 				break;
 			default:
 				break;
 			}
-		}while(menuselection != 0);
+		}while(pf == null);
 		
 		List<ACharacter> charOptions = pf.getCharacterModels();
 		ACharacter myCharacter = null;
@@ -30,7 +30,7 @@ public class Driver {
 			printCharMenu(charOptions);
 			menuselection = scanner.nextInt();
 			if(menuselection >0 && menuselection <= charOptions.size()) {
-				myCharacter = charOptions.get(menuselection + 1);
+				myCharacter = charOptions.get(menuselection - 1);
 			}
 		}while(myCharacter == null);
 		
@@ -40,7 +40,7 @@ public class Driver {
 			printWeaponMenu(wepOptions);
 			menuselection = scanner.nextInt();
 			if(menuselection >0 && menuselection <= wepOptions.size()) {
-				myWeapon = wepOptions.get(menuselection + 1);
+				myWeapon = wepOptions.get(menuselection - 1);
 			}
 		}while(myWeapon == null);
 		
@@ -52,7 +52,7 @@ public class Driver {
 		System.out.println("\n-----------------------------------------");
 		System.out.printf("%-19s [%d] %-20s\n","Select a level:", 0, "Exit");
 		System.out.printf("[%d] %-15s [%d] %-20s\n", 1, "Beginner", 3, "Advanced");
-		System.out.printf("[%d] %-15s [%d] %-20s\n", 2, "Intermediate");
+		System.out.printf("[%d] %-15s \n", 2, "Intermediate");
 		System.out.println("-----------------------------------------");
 		System.out.print("Selection: ");
 		
@@ -65,7 +65,7 @@ public class Driver {
 		int i = 0;
 		for(ACharacter c : charOptions) {
 			i++;
-			System.out.printf("[%d]\t%s", i,c.toString());
+			System.out.printf("[%d]\t%s\n", i,c.toString());
 		}
 		System.out.println("-----------------------------------------");
 		System.out.print("Selection: ");
@@ -79,7 +79,7 @@ public class Driver {
 		int i = 0;
 		for(AWeapon w : wepOptions) {
 			i++;
-			System.out.printf("[%d]\t%s", i,w.toString());
+			System.out.printf("[%d]\t%s\n", i,w.toString());
 		}
 		System.out.println("-----------------------------------------");
 		System.out.print("Selection: ");
