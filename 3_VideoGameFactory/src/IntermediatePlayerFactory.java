@@ -20,7 +20,7 @@ public class IntermediatePlayerFactory implements IPlayerFactory {
 	 * @return List<AWeapon> a list of pre-made Expanse themed Weapons
 	 */
 	@Override
-	public List<AWeapon> getWeapons() {
+	public List<AWeapon> getWeaponsModels() {
 		List<AWeapon> weapons = new ArrayList<AWeapon>();
 		weapons.add(new IntermediatePlayerWeapon("Wrench", AWeapon.WeaponType.DAGGER, AWeapon.DamageType.BLUDGENING));
 		weapons.add(new IntermediatePlayerWeapon("Rail Gun", AWeapon.WeaponType.GUN, AWeapon.DamageType.NECROTIC));

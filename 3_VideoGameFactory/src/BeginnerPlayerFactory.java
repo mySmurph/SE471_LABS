@@ -21,7 +21,7 @@ public class BeginnerPlayerFactory implements IPlayerFactory {
 	 * @return List<AWeapon> a list of pre-made Futurama themed Weapons
 	 */
 	@Override
-	public List<AWeapon> getWeapons() {
+	public List<AWeapon> getWeaponsModels() {
 		List<AWeapon> weapons = new ArrayList<AWeapon>();
 		weapons.add(new BeginnerPlayerWeapon("Broken Beer Bottle", AWeapon.WeaponType.DAGGER, AWeapon.DamageType.BLUDGENING));
 		weapons.add(new BeginnerPlayerWeapon("Blaster", AWeapon.WeaponType.GUN, AWeapon.DamageType.NECROTIC));

@@ -20,7 +20,7 @@ public class AdvancedPlayerFactory implements IPlayerFactory {
 	 * @return List<AWeapon> a list of pre-made Game of Thrones themed Weapons
 	 */
 	@Override
-	public List<AWeapon> getWeapons() {
+	public List<AWeapon> getWeaponsModels() {
 		List<AWeapon> weapons = new ArrayList<AWeapon>();
 		weapons.add(new AdvancedPlayerWeapon("Dragonglass", AWeapon.WeaponType.DAGGER, AWeapon.DamageType.PIERCING));
 		weapons.add(new AdvancedPlayerWeapon("Crossbow", AWeapon.WeaponType.GUN, AWeapon.DamageType.NECROTIC));

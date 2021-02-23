@@ -34,7 +34,7 @@ public class Driver {
 			}
 		}while(myCharacter == null);
 		
-		List<AWeapon> wepOptions = pf.getWeapons();
+		List<AWeapon> wepOptions = pf.getWeaponsModels();
 		AWeapon myWeapon = null;
 		do {
 			printWeaponMenu(wepOptions);
