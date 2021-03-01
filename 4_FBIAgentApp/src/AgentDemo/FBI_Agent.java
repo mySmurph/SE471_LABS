@@ -37,11 +37,18 @@ public class FBI_Agent implements Runnable, Agent_IF {
 	@Override
 	public void run() {
 		while(true) {
-			if(workingInProgress) {
-				sleep(100);
-				System.out.println(myFootPrint);
-			}else {
-				sleep(500);
+			try {
+				if(workingInProgress) {
+					
+						Thread.sleep(100);
+					
+					System.out.println(myFootPrint);
+				}else {
+					Thread.sleep(500);
+				}
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			}
 		}
 
