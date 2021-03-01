@@ -3,7 +3,7 @@ package PoolPattern;
 
 public class ObjectPool implements ObjectPool_IF {
 
-	private Object lockObject;
+	private static Object lockObject;
 	
 	/**
 	 * the number of free objects
@@ -24,24 +24,42 @@ public class ObjectPool implements ObjectPool_IF {
 	 * the pool of objects
 	 */
 	private Object[] pool;
+	
 	/**
-	 * 
+	 * singleton ObjectPool
 	 */
-	public ObjectPool(ObjectCreation_IF c, int max) {
+	private static ObjectPool poolInstance = null;
+	
+	/**
+	 * the Object creator 
+	 */
+	private ObjectCreation_IF creator;
+	
+	private ObjectPool(ObjectCreation_IF c, int max) {
+		this.creator = c;
 		this.maxInstances = max;
+		this.size = 0;
 		this.pool  = new Object[maxInstances];
 	}
 
+	public static ObjectPool getPoolInstance(ObjectCreation_IF c, int max) {
+		
+		synchronized(lockObject){
+			if(poolInstance == null) {
+				poolInstance = new ObjectPool(c, max);
+			}
+		}
+		return poolInstance;
+		
+	}
 	@Override
 	public int getSize() {
-		// TODO Auto-generated method stub
-		return 0;
+		return this.size;
 	}
 
 	@Override
 	public int getCapacity() {
-		// TODO Auto-generated method stub
-		return 0;
+		return this.maxInstances;
 	}
 
 	@Override
@@ -66,6 +84,13 @@ public class ObjectPool implements ObjectPool_IF {
 	public void releaseObject() {
 		// TODO Auto-generated method stub
 
+	}
+	private Object removeObject() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	private Object createObject() {
+		return creator.create();
 	}
 
 }

@@ -18,13 +18,13 @@ public class FBI_Agent implements Runnable, Agent_IF {
 
 	@Override
 	public void startTask() {
-		// TODO Auto-generated method stub
+		this.workingInProgress = true;
 
 	}
 
 	@Override
 	public void stopTask() {
-		// TODO Auto-generated method stub
+		this.workingInProgress = false;
 
 	}
 
@@ -36,8 +36,19 @@ public class FBI_Agent implements Runnable, Agent_IF {
 
 	@Override
 	public void run() {
-		// TODO Auto-generated method stub
+		while(true) {
+			if(workingInProgress) {
+				sleep(100);
+				System.out.println(myFootPrint);
+			}else {
+				sleep(500);
+			}
+		}
 
+	}
+	
+	private void processing() {
+		// TODO Auto-generated method stub
 	}
 
 }
