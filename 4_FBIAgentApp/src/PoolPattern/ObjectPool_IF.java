@@ -6,5 +6,5 @@ public interface ObjectPool_IF {
 	public void setCapacity(int c);
 	public Object getObject();
 	public Object waitForObject();
-	public void releaseObject();
+	public void release(Object o);
 }

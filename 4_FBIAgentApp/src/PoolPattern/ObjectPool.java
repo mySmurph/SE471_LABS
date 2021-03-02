@@ -81,7 +81,7 @@ public class ObjectPool implements ObjectPool_IF {
 	}
 
 	@Override
-	public void releaseObject() {
+	public void release(Object o) {
 		// TODO Auto-generated method stub
 
 	}

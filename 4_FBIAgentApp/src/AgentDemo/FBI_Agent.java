@@ -19,13 +19,11 @@ public class FBI_Agent implements Runnable, Agent_IF {
 	@Override
 	public void startTask() {
 		this.workingInProgress = true;
-
 	}
 
 	@Override
 	public void stopTask() {
 		this.workingInProgress = false;
-
 	}
 
 	@Override
@@ -47,7 +45,7 @@ public class FBI_Agent implements Runnable, Agent_IF {
 					Thread.sleep(500);
 				}
 			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
+				System.out.println(this.getClass().getName());
 				e.printStackTrace();
 			}
 		}
