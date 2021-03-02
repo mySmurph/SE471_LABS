@@ -7,21 +7,18 @@ public class FBI_Agent_Creator implements ObjectCreation_IF {
 	/**
 	 * array if special characters
 	 */
-	private String[] footPrints = {"FBI-@", "FIB-#", "FBI-$", "FBI-*", "FBI-.", "FBI-?"};
+	private String[] footPrints = {"@", "#", "$", "*", ".", "?"};
 	
 	/**
 	 * index
 	 */
-	private int index;
+	private int index = 0;
 	
 
 	@Override
 	public Object create() {
-		FBI_Agent agent = null;
-		if(index < this.footPrints.length) {
-			new FBI_Agent(this.footPrints[index++]);
-			new Thread(agent).start();
-		}
+		FBI_Agent agent = new FBI_Agent(this.footPrints[(index++)%footPrints.length]);
+		new Thread(agent).start();
 		return agent;
 	}
 

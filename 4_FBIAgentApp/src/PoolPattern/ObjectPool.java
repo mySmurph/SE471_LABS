@@ -3,7 +3,7 @@ package PoolPattern;
 
 public class ObjectPool implements ObjectPool_IF {
 
-	private static Object lockObject;
+	private static Object lockObject = new Object();
 	
 	/**
 	 * the number of free objects
@@ -39,6 +39,7 @@ public class ObjectPool implements ObjectPool_IF {
 		this.creator = c;
 		this.maxInstances = max;
 		this.size = 0;
+		this.instanceCount = 0;
 		this.pool  = new Object[maxInstances];
 	}
 
@@ -59,35 +60,87 @@ public class ObjectPool implements ObjectPool_IF {
 
 	@Override
 	public int getCapacity() {
-		return this.maxInstances;
+		return pool.length;
 	}
-
+	
+	/**
+	 * copied from book P.172
+	 */
 	@Override
 	public void setCapacity(int c) {
-		// TODO Auto-generated method stub
-
+		if(c != pool.length) {
+			if(c <= 0) {
+				String msg = "Capacity must be greater than zero.\n\tValue Entered:\t" + c;
+				throw new IllegalArgumentException(msg);
+			}
+			synchronized(lockObject){
+				this.maxInstances = c;
+				Object[] newPool = new Object[maxInstances];
+				System.arraycopy(pool, 0, newPool, 0, maxInstances);
+				pool = newPool;
+			}
+		}
 	}
 
+	/**
+	 * copied from book P.172
+	 */
 	@Override
 	public Object getObject() {
-		// TODO Auto-generated method stub
-		return null;
+		synchronized(lockObject){
+			if(size > 0) {
+				return removeObject();
+			}else if(instanceCount < maxInstances) {
+				return createObject();
+			}else {
+				return null;
+			}
+		}
 	}
 
+	/**
+	 * copied from book P.173
+	 */
 	@Override
-	public Object waitForObject() {
-		// TODO Auto-generated method stub
-		return null;
+	public Object waitForObject() throws InterruptedException{
+		synchronized(lockObject){
+			if(size > 0) {
+				return removeObject();
+			}else if(size < maxInstances) {
+				return createObject();
+			}else {
+				do {
+					wait();
+				}while(size <= 0);
+				return removeObject();
+			}
+		}
 	}
 
+	/**
+	 * copied from book P.173-174
+	 */
 	@Override
 	public void release(Object o) {
-		// TODO Auto-generated method stub
+		if(o == null) {
+			throw new NullPointerException();
+		}
+		synchronized(lockObject){
+			if(size < getCapacity()) {
+				pool[size] = o;
+				size++;
+				lockObject.notify();
+			}
+		}
 
 	}
+	
+	/**
+	 * copied from book P.173
+	 */
 	private Object removeObject() {
-		// TODO Auto-generated method stub
-		return null;
+		size--;
+		return pool[size];
 	}
 	private Object createObject() {
 		return creator.create();
