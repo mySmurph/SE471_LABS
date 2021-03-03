@@ -106,11 +106,11 @@ public class ObjectPool implements ObjectPool_IF {
 		synchronized(lockObject){
 			if(size > 0) {
 				return removeObject();
-			}else if(size < maxInstances) {
+			}else if(instanceCount < maxInstances) {
 				return createObject();
 			}else {
 				do {
-					wait();
+					lockObject.wait();
 				}while(size <= 0);
 				return removeObject();
 			}
@@ -143,7 +143,9 @@ public class ObjectPool implements ObjectPool_IF {
 		return pool[size];
 	}
 	private Object createObject() {
+		instanceCount++;
 		return creator.create();
+		
 	}
 
 }
