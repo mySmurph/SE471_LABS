@@ -35,6 +35,16 @@ public class ObjectPool implements ObjectPool_IF {
 	 */
 	private ObjectCreation_IF creator;
 	
+	/**
+	 * counts all the tasks
+	 */
+	private int taskCounter = 0;
+	
+	/**
+	 * constructor
+	 * @param c
+	 * @param max
+	 */
 	private ObjectPool(ObjectCreation_IF c, int max) {
 		this.creator = c;
 		this.maxInstances = max;
@@ -43,6 +53,12 @@ public class ObjectPool implements ObjectPool_IF {
 		this.pool  = new Object[maxInstances];
 	}
 
+	/**
+	 * get a object pool
+	 * @param c
+	 * @param max
+	 * @return the instance of the ObjectPool
+	 */
 	public static ObjectPool getPoolInstance(ObjectCreation_IF c, int max) {
 		
 		synchronized(lockObject){
@@ -53,17 +69,26 @@ public class ObjectPool implements ObjectPool_IF {
 		return poolInstance;
 		
 	}
+	
+	/**
+	 * @return size - the number of free objects
+	 */
 	@Override
 	public int getSize() {
 		return this.size;
 	}
 
+	/**
+	 * @return capacity - the total number of objects 
+	 */
 	@Override
 	public int getCapacity() {
 		return pool.length;
 	}
 	
 	/**
+	 * set the total number of objects that make up the object pool
+	 * @param c the new capacity
 	 * copied from book P.172
 	 */
 	@Override
@@ -83,6 +108,8 @@ public class ObjectPool implements ObjectPool_IF {
 	}
 
 	/**
+	 * get an object from the object pool
+	 * @return the object
 	 * copied from book P.172
 	 */
 	@Override
@@ -99,6 +126,8 @@ public class ObjectPool implements ObjectPool_IF {
 	}
 
 	/**
+	 * get an object from the object pool when it becomes available
+	 * @return the object
 	 * copied from book P.173
 	 */
 	@Override
@@ -118,6 +147,8 @@ public class ObjectPool implements ObjectPool_IF {
 	}
 
 	/**
+	 * return an object to the object pool
+	 * @param o - the object to be placed back in the object pool
 	 * copied from book P.173-174
 	 */
 	@Override
@@ -132,20 +163,34 @@ public class ObjectPool implements ObjectPool_IF {
 				lockObject.notify();
 			}
 		}
-
 	}
 	
 	/**
+	 * remove an object from the object pool
+	 * @return the object that has been removed
 	 * copied from book P.173
 	 */
 	private Object removeObject() {
 		size--;
 		return pool[size];
 	}
+	
+	/**
+	 * make a new object
+	 * @return the new object
+	 */
 	private Object createObject() {
 		instanceCount++;
 		return creator.create();
-		
+	}
+
+	/**
+	 * get the next task number
+	 * @return the next task number
+	 */
+	@Override
+	public int getNextTask() {
+		return ++taskCounter;
 	}
 
 }

@@ -7,4 +7,5 @@ public interface ObjectPool_IF {
 	public Object getObject();
 	public Object waitForObject() throws InterruptedException;
 	public void release(Object o);
+	public int getNextTask();
 }

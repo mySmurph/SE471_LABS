@@ -4,34 +4,41 @@ import PoolPattern.ObjectPool;
 
 public class TaskRequester implements Runnable {
 
+	/**
+	 * Singlton object pool
+	 */
 	private ObjectPool server;
-//	private int[] taskQueue;
+	
+	/**
+	 * constructor
+	 * @param p the Object pool that we are allowed to request service providers from
+	 */
 	public TaskRequester(ObjectPool p) {
 		this.server = p;
-//		this.taskQueue = new int[]{111, 211, 231, 311, 351, 443, 446, 370, 451, 461, 471, 481};
-		
 	}
 
+	/**
+	 * On run we get an available agent from the service pool, then
+	 * the agent start working on a task for an amount of time.
+	 * When time is up the agent stops working on the task and the agent is returned to the service pool.
+	 */
 	@Override
 	public void run() {
-//		int i = 0;
 		Agent_IF agent;
 		try {
 			agent = (Agent_IF) server.waitForObject();
-//			agent.setTaskID(this.taskQueue[(i++)%this.taskQueue.length]);
-//			agent.setTaskID((int)Math.random() * 10000);
+			agent.setTaskID(server.getNextTask());
 			agent.startTask();
 			try {
-				Thread.sleep((long) (Math.random() * 2000));
+				Thread.sleep(2000);
 			}catch (InterruptedException e) {
 				System.out.println(this.getClass().getName());
 				e.printStackTrace();
 			}
 			agent.stopTask();
-		server.release(agent);
+			server.release(agent);
 		} catch (InterruptedException e1) {
 			e1.printStackTrace();
 		}
 	}
-
 }
