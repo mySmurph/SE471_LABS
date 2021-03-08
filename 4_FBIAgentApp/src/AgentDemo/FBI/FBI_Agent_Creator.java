@@ -1,4 +1,4 @@
-package FBI;
+package AgentDemo.FBI;
 
 import PoolPattern.ObjectCreation_IF;
 
@@ -24,5 +24,4 @@ public class FBI_Agent_Creator implements ObjectCreation_IF {
 		new Thread(agent).start();
 		return agent;
 	}
-
 }

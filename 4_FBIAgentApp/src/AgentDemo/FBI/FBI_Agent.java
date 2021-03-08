@@ -1,4 +1,4 @@
-package FBI;
+package AgentDemo.FBI;
 
 import AgentDemo.Agent_IF;
 

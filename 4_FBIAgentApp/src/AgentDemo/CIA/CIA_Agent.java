@@ -1,4 +1,4 @@
-package CIA;
+package AgentDemo.CIA;
 
 import AgentDemo.Agent_IF;
 
@@ -83,5 +83,4 @@ public class CIA_Agent implements Runnable, Agent_IF {
 	private void processing() {
 		System.out.printf("%20s is working on task %d\n", myFootPrint, taskID);
 	}
-
 }

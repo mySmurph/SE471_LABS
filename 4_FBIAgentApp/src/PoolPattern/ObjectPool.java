@@ -67,7 +67,6 @@ public class ObjectPool implements ObjectPool_IF {
 			}
 		}
 		return poolInstance;
-		
 	}
 	
 	/**

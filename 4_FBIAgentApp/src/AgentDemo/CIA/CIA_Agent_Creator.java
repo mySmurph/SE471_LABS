@@ -1,4 +1,4 @@
-package CIA;
+package AgentDemo.CIA;
 
 import PoolPattern.ObjectCreation_IF;
 
@@ -24,5 +24,4 @@ public class CIA_Agent_Creator implements ObjectCreation_IF {
 		new Thread(agent).start();
 		return agent;
 	}
-
 }
