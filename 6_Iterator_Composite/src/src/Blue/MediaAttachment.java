@@ -8,7 +8,7 @@ public class MediaAttachment extends Attachment{
         this.mediaObject = media;
     }
 
-    public void preview(){
-        // play 5 frames from media object
+    public String preview(){
+        return String.format("Media Attachment: %s\n", fileName);
     }
 }

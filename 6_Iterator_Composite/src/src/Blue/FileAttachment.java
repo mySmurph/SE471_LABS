@@ -9,11 +9,18 @@ public class FileAttachment extends Attachment{
         this.fileExtension = ext;
         this.fileName = file;
     }
-    public void preview()throws IOException {
+    public String preview(){
         //print out 1 line from file
-        Scanner fileScan = new Scanner(new File(fileName+"."+fileExtension));
-        String buf  =  fileScan.hasNext()? fileScan.nextLine(): "<error reading file>";
-        System.out.printf("Attachment: %s\n %s...", fileName, buf);
-        fileScan.close();
+        String buf;
+        try{
+            Scanner fileScan = new Scanner(new File(fileName+"."+fileExtension));
+            buf  =  fileScan.hasNext()? fileScan.nextLine()+" ...": "<File Empty>";
+            fileScan.close();
+        }catch (IOException e){
+            buf = "<Error>";
+        }
+
+        return String.format("File Attachment: %s\n%s\n", fileName, buf);
+
     }
 }

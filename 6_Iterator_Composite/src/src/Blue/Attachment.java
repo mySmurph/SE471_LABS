@@ -6,7 +6,7 @@ public abstract class Attachment {
     String fileName;
     String fileExtension;
 
-    public void preview() throws IOException {
-        System.out.printf("Attachment: %s.%s\n", fileName, fileExtension);
+    public String preview() {
+        return String.format("Generic Attachment: %s.%s\n", fileName, fileExtension);
     }
 }
