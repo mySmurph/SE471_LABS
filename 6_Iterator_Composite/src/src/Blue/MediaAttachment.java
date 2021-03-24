@@ -1,14 +1,28 @@
 package src.Blue;
 
+import java.io.File;
+import java.io.IOException;
+import java.util.Scanner;
+
 public class MediaAttachment extends Attachment{
-    Object mediaObject;
-    MediaAttachment(String file, String ext, Object media){
-        this.fileExtension = ext;
+    MediaAttachment(String file){
         this.fileName = file;
-        this.mediaObject = media;
     }
 
     public String preview(){
-        return String.format("Media Attachment: %s\n", fileName);
+        StringBuilder asciiArt = new StringBuilder();
+        try{
+            String buf;
+            Scanner fileScan = new Scanner(new File("src/MediaAttachments/"+fileName));
+            while(fileScan.hasNext()){
+                buf  = fileScan.nextLine();
+                asciiArt.append(buf + "\n");
+            }
+            fileScan.close();
+        }catch (IOException e){
+            asciiArt.append("<Error>");
+        }
+
+        return String.format("Media Attachment: %s\n%s", fileName, asciiArt.toString());
     }
 }

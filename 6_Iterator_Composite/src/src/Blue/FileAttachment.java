@@ -5,22 +5,27 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class FileAttachment extends Attachment{
-    FileAttachment(String file, String ext){
-        this.fileExtension = ext;
+    public FileAttachment(String file){
         this.fileName = file;
     }
     public String preview(){
-        //print out 1 line from file
-        String buf;
+        StringBuilder fileSnip = new StringBuilder();
         try{
-            Scanner fileScan = new Scanner(new File(fileName+"."+fileExtension));
-            buf  =  fileScan.hasNext()? fileScan.nextLine()+" ...": "<File Empty>";
+            String buf;
+            Scanner fileScan = new Scanner(new File("src/FileAttachments/"+fileName));
+            int i = 0;
+            int limit = 3;
+            while(fileScan.hasNext() & i++ < limit){
+                buf  = fileScan.nextLine();
+                fileSnip.append(buf + " ");
+            }
+            fileSnip.append("...");
             fileScan.close();
         }catch (IOException e){
-            buf = "<Error>";
+            fileSnip.append("<Error>");
         }
 
-        return String.format("File Attachment: %s\n%s\n", fileName, buf);
+        return String.format("File Attachment: %s\n%s\n", fileName, fileSnip.toString());
 
     }
 }
