@@ -11,7 +11,7 @@ public class MediaAttachment extends Attachment{
      * set the attached file
      * @param file
      */
-    MediaAttachment(String file){
+    public MediaAttachment(String file){
         this.fileName = file;
     }
 

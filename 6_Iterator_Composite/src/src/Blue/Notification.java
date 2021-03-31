@@ -8,20 +8,23 @@ public class Notification {
      * the attachment the notification is for
      */
     private Attachment attachment;
+    private String message;
+
+    public Notification(String mess){   this.message = mess;}
 
     /**
      * constructor
      * @param att the attachment
      */
-    public Notification(String att){
-            attachment = att.contains(".txt")? new FileAttachment(att): new MediaAttachment(att);
+    public void attach(Attachment att){
+            attachment = att;
     }
 
     /**
      * get a preview of the content of the attachment
-     * @return
+     * @return String
      */
     public String getContent(){
-        return attachment.preview();
+        return message+"\n"+attachment.preview();
     }
 }

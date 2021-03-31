@@ -36,10 +36,10 @@ public class NotificationCollection implements NotificationCollectionIF{
      */
     public void addItem(String str){    items.add(new Notification(str));    }
 
+
     /**
      * get how many notifications are in the collection
      * @return int
      */
     public int getLength(){ return items.size();}
-
 }

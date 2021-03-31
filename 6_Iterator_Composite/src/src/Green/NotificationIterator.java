@@ -26,7 +26,7 @@ public class NotificationIterator implements NotificationIteratorIF{
     }
 
     /**
-     * determin if the iterator has more objects that it has not iterated through
+     * determine if the iterator has more objects that it has not iterated through
      * @return Boolean - true if more objects, false if at end
      */
     public boolean hasNext() {    return index < collection.getLength();    }
