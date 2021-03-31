@@ -1,28 +1,45 @@
+//  NotificationCollection.java
+
 package src.Green;
 
-import src.Blue.FileAttachment;
 import src.Blue.Notification;
-
 import java.util.ArrayList;
 
 public class NotificationCollection implements NotificationCollectionIF{
+
+    /**
+     * the data structure used for the collection
+     */
     ArrayList<Notification> items;
 
-    public NotificationCollection(){
-        items = new ArrayList<>();
-    }
-    public NotificationIteratorIF createIterator() {
-        return new NotificationIterator(this) ;
-    }
+    /**
+     * constructor
+     */
+    public NotificationCollection(){  items = new ArrayList<>(); }
 
-    public Notification getItem(int index){
-        return items.get(index);
-    }
+    /**
+     * get an iterator for this collection
+     * @return NotificationIteratorIF
+     */
+    public NotificationIteratorIF createIterator() {   return new NotificationIterator(this) ;   }
 
-    public void addItem(String str){
-        items.add(new Notification(str));
-    }
+    /**
+     * get the notification at index
+     * @param index
+     * @return Notification
+     */
+    public Notification getItem(int index){    return items.get(index);    }
 
+    /**
+     * add item to collection
+     * @param str
+     */
+    public void addItem(String str){    items.add(new Notification(str));    }
+
+    /**
+     * get how many notifications are in the collection
+     * @return int
+     */
     public int getLength(){ return items.size();}
 
 }

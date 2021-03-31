@@ -1,11 +1,16 @@
+//  Attachment.java
 package src.Blue;
 
-import java.io.IOException;
-
 public abstract class Attachment {
+
+    /**
+     * the name of the file that is an attachment
+     */
     String fileName;
 
-    public String preview() {
-        return String.format("Generic Attachment: %s\n", fileName);
-    }
+    /**
+     * abstract preview of file attachment
+     * @return String
+     */
+    public String preview() {    return String.format("Generic Attachment: %s\n", fileName);    }
 }

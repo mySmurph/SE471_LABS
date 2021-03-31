@@ -1,3 +1,5 @@
+//  FileAttachment.java
+
 package src.Blue;
 
 import java.io.File;
@@ -5,9 +7,19 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class FileAttachment extends Attachment{
+
+    /**
+     * set the attached file
+     * @param file
+     */
     public FileAttachment(String file){
         this.fileName = file;
     }
+
+    /**
+     * reads the first few lines of the file to generate a preview of the file
+     * @return string of a preview of the file
+     */
     public String preview(){
         StringBuilder fileSnip = new StringBuilder();
         try{
@@ -26,6 +38,5 @@ public class FileAttachment extends Attachment{
         }
 
         return String.format("File Attachment: %s\n%s\n", fileName, fileSnip.toString());
-
     }
 }

@@ -1,3 +1,5 @@
+//  MediaAttachment.java
+
 package src.Blue;
 
 import java.io.File;
@@ -5,10 +7,18 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class MediaAttachment extends Attachment{
+    /**
+     * set the attached file
+     * @param file
+     */
     MediaAttachment(String file){
         this.fileName = file;
     }
 
+    /**
+     * generates a preview of the attachment
+     * @return string of a preview of the file
+     */
     public String preview(){
         StringBuilder asciiArt = new StringBuilder();
         try{
