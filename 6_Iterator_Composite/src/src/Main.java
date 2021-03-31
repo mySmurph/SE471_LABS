@@ -31,7 +31,5 @@ public class Main {
         nc.getItem(5).attach(bob);
 
         nb.printNotifications();
-
-
     }
 }

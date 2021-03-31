@@ -10,10 +10,14 @@ public class Notification {
     private Attachment attachment;
 
     /**
-     * 
+     * notification message
      */
     private String message;
 
+    /**
+     * constructor
+     * @param mess
+     */
     public Notification(String mess){   this.message = mess;}
 
     /**
