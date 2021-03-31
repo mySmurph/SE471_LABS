@@ -2,6 +2,7 @@
 package src;
 
 import src.Blue.Attachment;
+import src.Blue.FileAttachment;
 import src.Blue.MediaAttachment;
 import src.Green.NotificationCollection;
 
@@ -15,13 +16,22 @@ public class Main {
         nc.addItem("Toxic Thoughts lyrics");
         nc.addItem("Who Do You Love lyrics");
         nc.addItem("SpongeBob meme");
-//        NotificationBar nb = new NotificationBar(nc);
-//        nb.printNotifications();
-
-        System.out.println("make attachment");
-        Attachment felix = new MediaAttachment("FelixTheCat");
-        nc.getItem(0).attach(felix);
+        nc.addItem("You really gotta see this meme Felix The Cat");
         NotificationBar nb = new NotificationBar(nc);
         nb.printNotifications();
+
+        System.out.println("-----Make Attachments-----");
+        Attachment felix = new MediaAttachment("FelixTheCat");
+        Attachment bob = new MediaAttachment("SpongeBob");
+        Attachment cindy = new FileAttachment("TrueColors.txt");
+
+        nc.getItem(0).attach(felix);
+        nc.getItem(6).attach(felix);
+        nc.getItem(1).attach(cindy);
+        nc.getItem(5).attach(bob);
+
+        nb.printNotifications();
+
+
     }
 }
