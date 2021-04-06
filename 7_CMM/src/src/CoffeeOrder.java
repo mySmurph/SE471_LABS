@@ -5,7 +5,6 @@ import src.Condiment.ICondiment;
 
 public abstract class CoffeeOrder implements ICoffee {
 	private ICoffee baseCoffee;
-	private ICondiment condiment;
 
 	public CoffeeOrder(ICoffee baseCoffee) {
 		this.baseCoffee = baseCoffee;
@@ -16,4 +15,12 @@ public abstract class CoffeeOrder implements ICoffee {
 	public void start(){
 		baseCoffee.start();
 	}
+	@Override
+	public void setTemperature(int degree) {
+		baseCoffee.setTemperature(degree);
+	}
+	public void setGrindingTime(int secs){
+		baseCoffee.setGrindingTime(secs);
+	}
+
 }

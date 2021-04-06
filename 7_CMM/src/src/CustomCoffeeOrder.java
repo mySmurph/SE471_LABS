@@ -14,6 +14,7 @@ public class CustomCoffeeOrder extends CoffeeOrder{
 	public float getPrice() {
 		return condiment.getPrice() + super.getPrice();
 	}
+
 	@Override
 	public void start() {
 		super.start();
