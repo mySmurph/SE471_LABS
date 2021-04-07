@@ -1,7 +1,6 @@
 package src;
 
 import src.Coffee.ICoffee;
-import src.Condiment.ICondiment;
 
 public abstract class CoffeeOrder implements ICoffee {
 	private ICoffee baseCoffee;
@@ -19,8 +18,15 @@ public abstract class CoffeeOrder implements ICoffee {
 	public void setTemperature(int degree) {
 		baseCoffee.setTemperature(degree);
 	}
+	@Override
 	public void setGrindingTime(int secs){
 		baseCoffee.setGrindingTime(secs);
+	}
+	public void setTempHoldTime(int secs){
+		baseCoffee.setTempHoldTime(secs);
+	}
+	public void setBrewTime(int secs){
+		baseCoffee.setBrewTime(secs);
 	}
 
 }

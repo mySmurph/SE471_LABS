@@ -6,5 +6,10 @@ public class Coffee_Mocha extends Coffee_Abstract{
 	}
 	@Override
 	public void start() {
+		super.setGrindingTime(5);
+		super.setBrewTime(15);
+		super.setTemperature(200);
+		super.setTempHoldTime(2);
+		super.start();
 	}
 }

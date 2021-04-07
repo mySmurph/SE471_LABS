@@ -22,17 +22,25 @@ public class Coffee_Abstract implements ICoffee{
 		return price;
 	}
 
+	private boolean settingsSet(){
+		return (isSet(grindTime) && isSet(temper) && isSet(temperHoldTime)  && isSet(brewTime) );
+	}
+	private boolean isSet(int setting){
+		return setting > 0;
+	}
 	@Override
 	public void start() {
 		System.out.printf("Start: %s \n", type);
-		notRunning = false;
-		displayLED();
-		grindBeans();
-		heatWater();
-		holdTemperature();
-		brewCoffee();
-		notRunning = true;
-		displayLED();
+		if(settingsSet()){
+			displayLED();
+			grindBeans();
+			heatWater();
+			holdTemperature();
+			brewCoffee();
+			displayLED();
+		}else{
+			System.out.println("Settings not set");
+		}
 	}
 
 	protected void displayLED(){
@@ -60,22 +68,26 @@ public class Coffee_Abstract implements ICoffee{
 	}
 	@Override
 	public void setGrindingTime(int secs) {
-		this.grindTime = secs;
+		if(!isSet(grindTime))
+			this.grindTime = secs;
 	}
 
 	@Override
 	public void setTemperature(int degree) {
-		this.temper = degree;
+		if(!isSet(temper))
+			this.temper = degree;
 	}
 
 	@Override
 	public void setTempHoldTime(int secs) {
-		this.temperHoldTime = secs;
+		if(!isSet(temperHoldTime))
+			this.temperHoldTime = secs;
 	}
 
 	@Override
 	public void setBrewTime(int secs) {
-		this.brewTime = secs;
+		if(!isSet(brewTime))
+			this.brewTime = secs;
 	}
 
 	private void holdTemperature() {

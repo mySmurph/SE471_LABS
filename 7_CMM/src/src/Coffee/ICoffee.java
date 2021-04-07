@@ -1,8 +1,6 @@
 package src.Coffee;
 
-import src.Condiment.ICondiment;
-
-public interface ICoffee {
+public interface ICoffee{
 	public float getPrice();
 	public void start();
 	public void setGrindingTime(int secs);
