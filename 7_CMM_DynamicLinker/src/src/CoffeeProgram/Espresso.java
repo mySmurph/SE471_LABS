@@ -1,3 +1,5 @@
+//Espresso.java
+
 package src.CoffeeProgram;
 
 import src.CMM.CMM_OpenAPI;
@@ -9,14 +11,21 @@ import src.Condiment.Vanilla;
  * 	It automatically adds Condiments to turn a base coffee into a Espresso
  * 	While also allowing for additional extra condiments to be added
  *
- * 	Ok, This on is weird because espresso is a different base coffee and is concentrated coffee
  */
-public class Espresso extends Coffee{
+public class Espresso extends Coffee
+{
+	/**
+	 * Constructor
+	 * @param coffeeMaker is the platform
+	 */
 	public Espresso(CMM_OpenAPI coffeeMaker) {
 		super(coffeeMaker);
 		super.setCoffee("Espresso", 4.0f, 4);
 	}
 
+	/**
+	 * Program for Espresso
+	 */
 	@Override
 	public void start() {
 		coffeeMaker.setTypeLED(menuItem);
