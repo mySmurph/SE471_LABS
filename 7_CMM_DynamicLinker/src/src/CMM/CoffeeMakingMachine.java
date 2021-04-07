@@ -120,7 +120,6 @@ public class CoffeeMakingMachine implements CMM_OpenAPI{
 
 	/**
 	 * Displays and sets how long the Brewing Temperature must last
-	 * That doesn't sound right, whats a better way to describe this, It is b
 	 * @param secs the length of time the temp is to be held
 	 */
 	@Override
@@ -149,7 +148,7 @@ public class CoffeeMakingMachine implements CMM_OpenAPI{
 	 * 1 for regular coffee
 	 * 2 for Mocha
 	 * 3 for Latte
- 	 * 4 for Espresso
+	 * 4 for Espresso
 	 * 5 for Cappuccino
 	 * @param num the selected order
 	 */
