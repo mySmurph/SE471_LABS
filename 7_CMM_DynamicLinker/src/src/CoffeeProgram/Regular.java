@@ -15,7 +15,7 @@ public class Regular extends Coffee{
 		coffeeMaker.setGrindTime(8);
 		coffeeMaker.setTemperature(150);
 		coffeeMaker.holdTemperature(2);
-		addExtra();
+		addExtras();
 		coffeeMaker.wait(15);
 		coffeeMaker.setPowerLED(1);
 		coffeeMaker.done();

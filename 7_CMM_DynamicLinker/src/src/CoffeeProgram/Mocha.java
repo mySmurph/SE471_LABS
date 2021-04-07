@@ -19,7 +19,7 @@ public class Mocha extends Coffee{
 		coffeeMaker.holdTemperature(5);
 		coffeeMaker.addCondiment(new Cream());
 		coffeeMaker.addCondiment(new Vanilla());
-		addExtra();
+		addExtras();
 		coffeeMaker.wait(15);
 		coffeeMaker.setPowerLED(1);
 		coffeeMaker.done();

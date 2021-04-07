@@ -33,7 +33,7 @@ public abstract class Coffee {
 	public void customizeOrder(Condiment addExtraCondiment){
 		extraCondiments.add(addExtraCondiment);
 	}
-	public void addExtra(){
+	protected void addExtras(){
 		for (Condiment extra:extraCondiments) {
 			coffeeMaker.addCondiment(extra);
 		}

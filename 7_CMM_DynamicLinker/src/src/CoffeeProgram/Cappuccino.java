@@ -2,7 +2,6 @@ package src.CoffeeProgram;
 
 import src.CMM.CMM_OpenAPI;
 import src.Condiment.Cream;
-import src.Condiment.Vanilla;
 
 public class Cappuccino extends Coffee{
 	public Cappuccino(CMM_OpenAPI coffeeMaker) {
@@ -18,7 +17,7 @@ public class Cappuccino extends Coffee{
 		coffeeMaker.setTemperature(198);
 		coffeeMaker.holdTemperature(4);
 		coffeeMaker.addCondiment(new Cream());
-		addExtra();
+		addExtras();
 		coffeeMaker.wait(15);
 		coffeeMaker.setPowerLED(1);
 		coffeeMaker.done();
