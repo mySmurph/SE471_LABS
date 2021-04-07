@@ -1,3 +1,5 @@
+//   CoffeeMakingMachine.java
+
 package src.CMM;
 
 import src.CoffeeProgram.*;
@@ -12,23 +14,39 @@ import java.util.StringTokenizer;
 
 public class CoffeeMakingMachine implements CMM_OpenAPI{
 
+	/**
+	 * sale records
+	 */
 	private List<Coffee> coffeeOrders = new ArrayList<Coffee>();
+
+	/**
+	 * the power stat of the machine
+	 */
 	private int power;
+
+	/**
+	 * the current order being processed
+	 */
 	private int type;
 
+	/**
+	 * the current program being executed
+	 */
 	private Coffee currentOrder;
 
-	/*
-	*	Constructor for the Coffee Making Machine
+	/**
+	* Constructor for the Coffee Making Machine
 	*/
 	public CoffeeMakingMachine() {
 		power = 1;
 		type = 0;
 		displayLED();
 	}
-	/*	This is the listener for the User inputs on what coffee they want
-	*	And which adds on they want
-	*
+
+	/**
+	 * This is the listener for the User inputs on what coffee they want
+	 * And which adds on they want
+	 * @param coffeeOrder string that describes the coffee
 	 */
 	@Override
 	public void setCoffeeType(String coffeeOrder) {
@@ -70,36 +88,40 @@ public class CoffeeMakingMachine implements CMM_OpenAPI{
 		currentOrder.start();
 	}
 
-	/*
-	*	Displays how long the beans were
-	* 	Ground for
-	*/
+	/**
+	 * Displays how long the beans were
+	 * Ground for
+	 * @param secs the amount of time to grind beans
+	 */
 	@Override
 	public void setGrindTime(int secs) {
 		System.out.printf("\t\tGrinding Beans for %d seconds\n", secs);
 		wait(secs);
 	}
 
-	/*	Prints the individually added condiments
-	*	i.e. Vanilla
+	/**
+	 * Prints the individually added condiments
+	 * i.e. Vanilla
+	 * @param condiment the condiment being added
 	 */
 	@Override
-	public void addCondiment(Condiment contiment) {
-		System.out.printf("\t\t%s added.\n", contiment.toString());
+	public void addCondiment(Condiment condiment) {
+		System.out.printf("\t\t%s added.\n", condiment.toString());
 	}
 
-	/*
-	*	Displays and Sets the Brewing Temperature for the coffee
-	*/
+	/**
+	 * Displays and Sets the Brewing Temperature for the coffee
+	 * @param temperature the temp to be reach
+	 */
 	@Override
 	public void setTemperature(int temperature) {
 		System.out.printf("\t\tHeating water to %d degrees.\n", temperature);
 	}
 
-	/*
-	*	Displays and sets how long the Brewing Temperature must last
-	*
-	* 	That doesn't sound right, whats a better way to describe this, It is b
+	/**
+	 * Displays and sets how long the Brewing Temperature must last
+	 * That doesn't sound right, whats a better way to describe this, It is b
+	 * @param secs the length of time the temp is to be held
 	 */
 	@Override
 	public void holdTemperature(int secs) {
@@ -107,11 +129,12 @@ public class CoffeeMakingMachine implements CMM_OpenAPI{
 		wait(secs);
 	}
 
-	/*
-	*	For power,
-	* 	1, Open to receiving orders
-	* 	0, Is busy with an order
-	*/
+	/**
+	 * For power,
+	 * 1, Open to receiving orders
+	 * 0, Is busy with an order
+	 * @param num the current running state of the machine
+	 */
 	@Override
 	public void setPowerLED(int num) {
 		this.power = num;
@@ -119,34 +142,36 @@ public class CoffeeMakingMachine implements CMM_OpenAPI{
 			setTypeLED(0);
 		displayLED();
 	}
-	/*
-	* For the LED Light that is not power, it displays which type of order is displayed
-	* 0 serves as No order selected
-	* 1 for regular coffee
-	* 2 for Mocha
-	* 3 for Latte
-	* 4 for Espresso
-	* 5 for Cappuccino
-	*
-	*/
+
+	/**
+	 * For the LED Light that is not power, it displays which type of order is displayed
+	 * 0 serves as No order selected
+	 * 1 for regular coffee
+	 * 2 for Mocha
+	 * 3 for Latte
+ 	 * 4 for Espresso
+	 * 5 for Cappuccino
+	 * @param num the selected order
+	 */
 	@Override
 	public void setTypeLED(int num) {
 		this.type = num;
 		displayLED();
 	}
 
-	/*
-	*	Returns the Price of the Order
-	*/
+	/**
+	 * Returns the Price of the Order
+	 * @param coffeeOrder the order to be calculated
+	 * @return double the total cost
+	 */
 	@Override
 	public double computePrice(Coffee coffeeOrder) {
 		return coffeeOrder.getMenuPrice();
 	}
 
-	/*	Displays how long the step must wait before it can move on
-	*	to the next step
-	*
-	* 	This doesn't sound right
+	/**
+	 * Displays how long the step must wait before it can move on to the next step
+	 * @param secs the amount of time in seconds for the machine to pause activity
 	 */
 	@Override
 	public void wait(int secs) {
@@ -158,9 +183,9 @@ public class CoffeeMakingMachine implements CMM_OpenAPI{
 		}
 	}
 
-	/* When the order is done,
-	*  It prints out the Order Name and Total Price
-	*/
+	/**
+	 * transaction of a cup and adds the sold coffee object to the List
+	 */
 	@Override
 	public void done() {
 		System.out.printf("%s\t\t$%.2f\n",currentOrder.toString(),  computePrice(currentOrder));
@@ -168,20 +193,8 @@ public class CoffeeMakingMachine implements CMM_OpenAPI{
 		currentOrder = null;
 	}
 
-	/*
-	 * For the LED Light on the Left, It is the power LED
-	 * For power,
-	 * 1, Open to receiving orders
-	 * 0, Is busy with an order
-	 *
-	 * For the LED Light on the right, It is the Order LED
-	 * 0 for No order selected
-	 * 1 for Regular coffee
-	 * 2 for Mocha
-	 * 3 for Latte
-	 * 4 for Espresso
-	 * 5 for Cappuccino
-	 *
+	/**
+	 * display current state of the machine
 	 */
 	private void displayLED(){
 		System.out.printf("[ %d | %d ]\n", power, type);
