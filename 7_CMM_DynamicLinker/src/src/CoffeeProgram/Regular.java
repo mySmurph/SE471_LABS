@@ -7,12 +7,21 @@ import src.CMM.CMM_OpenAPI;
 * 	Automatically creates a Standard coffee
 * 	and allows for extra condiments to be added to the mix
 */
-public class Regular extends Coffee{
+public class Regular extends Coffee
+{
+
+	/**
+	 * Constructor
+	 * @param coffeeMaker is the platform
+	 */
 	public Regular(CMM_OpenAPI coffeeMaker) {
 		super(coffeeMaker);
 		super.setCoffee("Regular", 1.0f, 1);
 	}
 
+	/**
+	 * Program for Regular Coffee
+	 */
 	@Override
 	public void start() {
 		coffeeMaker.setTypeLED(menuItem);

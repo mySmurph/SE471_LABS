@@ -9,6 +9,7 @@ import src.Condiment.Cream;
  * 	While also allowing for additional extra condiments to be added
 */
 public class Cappuccino extends Coffee{
+
 	public Cappuccino(CMM_OpenAPI coffeeMaker) {
 		super(coffeeMaker);
 		super.setCoffee("Cappuccino", 5.0f, 5);
