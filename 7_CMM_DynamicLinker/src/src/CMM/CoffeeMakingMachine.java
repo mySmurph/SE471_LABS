@@ -108,6 +108,7 @@ public class CoffeeMakingMachine implements CMM_OpenAPI{
 	@Override
 	public void wait(int secs) {
 		try {
+			System.out.printf("\t\tWating for %d seconds\n", secs);
 			Thread.sleep(secs * 100);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
