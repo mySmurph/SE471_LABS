@@ -4,6 +4,10 @@ import src.CMM.CMM_OpenAPI;
 import src.Condiment.Condiment;
 import java.util.*;
 
+/*
+*	Is this the Base Coffee or just regular coffee?
+*
+ */
 public abstract class Coffee {
 	protected String type;
 	protected float menuPrice;
@@ -38,6 +42,7 @@ public abstract class Coffee {
 			coffeeMaker.addCondiment(extra);
 		}
 	}
+
 	public String toString(){
 		StringBuilder coffee = new StringBuilder(type);
 		for (Condiment extra:extraCondiments) {

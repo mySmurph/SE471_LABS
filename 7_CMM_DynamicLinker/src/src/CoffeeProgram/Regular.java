@@ -2,6 +2,11 @@ package src.CoffeeProgram;
 
 import src.CMM.CMM_OpenAPI;
 
+/*
+*	A preset on the Coffee making machine
+* 	Automatically creates a Standard coffee
+* 	and allows for extra condiments to be added to the mix
+*/
 public class Regular extends Coffee{
 	public Regular(CMM_OpenAPI coffeeMaker) {
 		super(coffeeMaker);

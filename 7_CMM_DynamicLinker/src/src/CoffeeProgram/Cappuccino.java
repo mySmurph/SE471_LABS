@@ -3,6 +3,11 @@ package src.CoffeeProgram;
 import src.CMM.CMM_OpenAPI;
 import src.Condiment.Cream;
 
+/*
+*	A preset on the Coffee making machine
+* 	It automatically adds Condiments to turn a base coffee into a Cappuccino
+ * 	While also allowing for additional extra condiments to be added
+*/
 public class Cappuccino extends Coffee{
 	public Cappuccino(CMM_OpenAPI coffeeMaker) {
 		super(coffeeMaker);

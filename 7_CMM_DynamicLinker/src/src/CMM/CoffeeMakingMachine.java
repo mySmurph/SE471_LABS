@@ -18,12 +18,18 @@ public class CoffeeMakingMachine implements CMM_OpenAPI{
 
 	private Coffee currentOrder;
 
+	/*
+	*	Constructor for the Coffee Making Machine
+	*/
 	public CoffeeMakingMachine() {
 		power = 1;
 		type = 0;
 		displayLED();
 	}
-
+	/*	This is the listener for the User inputs on what coffee they want
+	*	And which adds on they want
+	*
+	 */
 	@Override
 	public void setCoffeeType(String coffeeOrder) {
 		StringTokenizer order = new StringTokenizer(coffeeOrder);
@@ -37,7 +43,7 @@ public class CoffeeMakingMachine implements CMM_OpenAPI{
 				break;
 			case "ESPRESSO":   currentOrder = new Espresso(this);
 				break;
-			case "CAPACCHINO": currentOrder = new Cappuccino(this);
+			case "CAPPUCCINO": currentOrder = new Cappuccino(this);
 				break;
 		}
 		int count = 1;
@@ -64,28 +70,48 @@ public class CoffeeMakingMachine implements CMM_OpenAPI{
 		currentOrder.start();
 	}
 
+	/*
+	*	Displays how long the beans were
+	* 	Ground for
+	*/
 	@Override
 	public void setGrindTime(int secs) {
 		System.out.printf("\t\tGrinding Beans for %d seconds\n", secs);
 		wait(secs);
 	}
 
+	/*	Prints the individually added condiments
+	*	i.e. Vanilla
+	 */
 	@Override
 	public void addCondiment(Condiment contiment) {
 		System.out.printf("\t\t%s added.\n", contiment.toString());
 	}
 
+	/*
+	*	Displays and Sets the Brewing Temperature for the coffee
+	*/
 	@Override
 	public void setTemperature(int temperature) {
 		System.out.printf("\t\tHeating water to %d degrees.\n", temperature);
 	}
 
+	/*
+	*	Displays and sets how long the Brewing Temperature must last
+	*
+	* 	That doesn't sound right, whats a better way to describe this, It is b
+	 */
 	@Override
 	public void holdTemperature(int secs) {
 		System.out.printf("\t\tHolding Temperature for %d seconds\n", secs);
 		wait(secs);
 	}
 
+	/*
+	*	For power,
+	* 	1, Open to receiving orders
+	* 	0, Is busy with an order
+	*/
 	@Override
 	public void setPowerLED(int num) {
 		this.power = num;
@@ -93,34 +119,70 @@ public class CoffeeMakingMachine implements CMM_OpenAPI{
 			setTypeLED(0);
 		displayLED();
 	}
-
+	/*
+	* For the LED Light that is not power, it displays which type of order is displayed
+	* 0 serves as No order selected
+	* 1 for regular coffee
+	* 2 for Mocha
+	* 3 for Latte
+	* 4 for Espresso
+	* 5 for Cappuccino
+	*
+	*/
 	@Override
 	public void setTypeLED(int num) {
 		this.type = num;
 		displayLED();
 	}
 
+	/*
+	*	Returns the Price of the Order
+	*/
 	@Override
 	public double computePrice(Coffee coffeeOrder) {
 		return coffeeOrder.getMenuPrice();
 	}
 
+	/*	Displays how long the step must wait before it can move on
+	*	to the next step
+	*
+	* 	This doesn't sound right
+	 */
 	@Override
 	public void wait(int secs) {
 		try {
-			System.out.printf("\t\tWating for %d seconds\n", secs);
+			System.out.printf("\t\tWaiting for %d seconds\n", secs);
 			Thread.sleep(secs * 100);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
 	}
 
+	/* When the order is done,
+	*  It prints out the Order Name and Total Price
+	*/
 	@Override
 	public void done() {
 		System.out.printf("%s\t\t$%.2f\n",currentOrder.toString(),  computePrice(currentOrder));
 		coffeeOrders.add(currentOrder);
 		currentOrder = null;
 	}
+
+	/*
+	 * For the LED Light on the Left, It is the power LED
+	 * For power,
+	 * 1, Open to receiving orders
+	 * 0, Is busy with an order
+	 *
+	 * For the LED Light on the right, It is the Order LED
+	 * 0 for No order selected
+	 * 1 for Regular coffee
+	 * 2 for Mocha
+	 * 3 for Latte
+	 * 4 for Espresso
+	 * 5 for Cappuccino
+	 *
+	 */
 	private void displayLED(){
 		System.out.printf("[ %d | %d ]\n", power, type);
 	}

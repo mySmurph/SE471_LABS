@@ -3,7 +3,11 @@ package src.CoffeeProgram;
 import src.CMM.CMM_OpenAPI;
 import src.Condiment.Cream;
 import src.Condiment.Vanilla;
-
+/*
+*	A preset on the Coffee making machine
+* 	It automatically adds Condiments to turn a base coffee into a mocha
+* 	While also allowing for additional extra condiments to be added
+*/
 public class Mocha extends Coffee{
 	public Mocha(CMM_OpenAPI coffeeMaker) {
 		super(coffeeMaker);
