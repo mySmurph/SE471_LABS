@@ -1,3 +1,5 @@
+// Cappuccino.java
+
 package src.CoffeeProgram;
 
 import src.CMM.CMM_OpenAPI;
@@ -9,11 +11,19 @@ import src.Condiment.Cream;
  * 	While also allowing for additional extra condiments to be added
 */
 public class Cappuccino extends Coffee{
+
+	/**
+	 * constructor
+	 * @param coffeeMaker is platform
+	 */
 	public Cappuccino(CMM_OpenAPI coffeeMaker) {
 		super(coffeeMaker);
 		super.setCoffee("Cappuccino", 5.0f, 5);
 	}
 
+	/**
+	 * program for cappuccino
+	 */
 	@Override
 	public void start() {
 		coffeeMaker.setTypeLED(menuItem);
