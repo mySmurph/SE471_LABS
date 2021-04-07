@@ -21,7 +21,6 @@ public class Latte extends Coffee
 		super.setCoffee("latte", 3.0f, 3);
 	}
 
-
 	/**
 	 * Program for Latte
 	 */
