@@ -20,7 +20,7 @@ public class CoffeeMakingMachine implements CMM_OpenAPI{
 	private List<Coffee> coffeeOrders = new ArrayList<Coffee>();
 
 	/**
-	 * the power stat of the machine
+	 * the power state of the machine
 	 */
 	private int power;
 
