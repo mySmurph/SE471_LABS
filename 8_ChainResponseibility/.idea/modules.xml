@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/7_CMM-decorator.iml" filepath="$PROJECT_DIR$/7_CMM-decorator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/8_ChainResponseibility.iml" filepath="$PROJECT_DIR$/8_ChainResponseibility.iml" />
     </modules>
   </component>
 </project>
