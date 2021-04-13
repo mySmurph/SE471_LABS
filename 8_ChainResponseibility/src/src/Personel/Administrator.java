@@ -9,7 +9,7 @@ public abstract class Administrator extends Employee{
 	/**
 	 * this admin's direct employee's
 	 */
-	private List<Employee> members;
+	protected List<Employee> members;
 
 	/**
 	 * constructor

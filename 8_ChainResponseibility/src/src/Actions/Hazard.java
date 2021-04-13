@@ -14,4 +14,12 @@ public class Hazard {
 	public String toString(){
 		return type;
 	}
+
+	public String getDesp() {
+		return desp;
+	}
+
+	public int getHazard_level() {
+		return hazard_level;
+	}
 }
