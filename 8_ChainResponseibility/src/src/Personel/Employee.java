@@ -49,4 +49,8 @@ public abstract class Employee implements IReporterHazard
 	public IReporterHazard getDirectOverseer(){
 		return overseer;
 	}
+
+	public String getName(){
+		return name;
+	}
 }
