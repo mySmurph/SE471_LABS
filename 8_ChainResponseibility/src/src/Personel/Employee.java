@@ -30,7 +30,7 @@ public abstract class Employee implements IReporterHazard
 	public abstract void seeDanger(IReporterHazard reporter, Hazard hazard);
 
 	/**
-	 *   leave the immediate area
+	 *   Leave the immediate area
 	 */
 	public abstract void evacuate();
 
