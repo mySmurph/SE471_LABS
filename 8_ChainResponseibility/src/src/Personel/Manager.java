@@ -1,4 +1,4 @@
-//ProjectLeader.java
+//Manager.java
 package src.Personel;
 
 import src.Actions.Decision;
