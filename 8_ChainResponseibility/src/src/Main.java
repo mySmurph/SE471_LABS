@@ -97,6 +97,6 @@ public class Main {
         bob.setDirectOverseer(steve);
         rachel.setDirectOverseer(steve);
 
-
+        john.seeDanger();
     }
 }

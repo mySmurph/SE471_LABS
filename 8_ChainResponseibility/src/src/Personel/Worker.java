@@ -46,15 +46,15 @@ public class Worker extends Employee{
 			System.out.printf("\t[%d] - %s\n", i++, type);
 		}
 		int typeSelection = observationDetails.nextInt()-1;
-		if(typeSelection>=0 && typeSelection < types.size())
-			typeSelection = 4;
+		if(typeSelection<0 || typeSelection >= types.size())
+			typeSelection = 3;
 		String type = types.get(typeSelection);
 
 		System.out.println("On a scale from 1(low) - 10(high), how dangerous is this hazard?");
 		int level = observationDetails.nextInt();
 
 		System.out.println("Please provide a short description of this hazard:");
-		String desp = observationDetails.nextLine();
+		String desp = observationDetails.next();
 
 		System.out.println("Triggering seeDanger(...) up the chain of responsibility.");
 		seeDanger(this, new Hazard(type, desp, level)); // call internal method
