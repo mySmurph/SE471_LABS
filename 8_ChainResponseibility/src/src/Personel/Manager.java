@@ -5,6 +5,7 @@ import src.Actions.Hazard;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Manager extends Administrator{
 	/**
@@ -51,7 +52,17 @@ public class Manager extends Administrator{
 	public List<Decision> suggestDecisions(Hazard hazard){
 		List<Decision> mySuggestions = new ArrayList<>();
 
+		Scanner choice = new Scanner(System.in);
+		System.out.println("How big of a problem from 1 - 10 is this issue?");
+		int Priority = choice.nextInt();
 
+		//We can have user input HOWEVER MySuggestions is an array list of ABSTRACT Decisions
+		//THose consist of Manager, Priority, and Hazard
+		//Decisions however CANT be instantiated
+
+		/*Decision Dec = new Decision(this, Priority, hazard);
+
+		mySuggestions.add(Dec);*/
 
 		return mySuggestions;
 	}
