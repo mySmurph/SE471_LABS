@@ -12,7 +12,7 @@ public class Hazard {
 	}
 
 	public String toString(){
-		return type;
+		return String.format( "%s Hazard - %s" , type, desp);
 	}
 
 	public String getDesp() {

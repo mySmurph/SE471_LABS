@@ -2,6 +2,8 @@ package src.Personel;
 
 import src.Actions.Hazard;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Worker extends Employee{
@@ -17,24 +19,45 @@ public class Worker extends Employee{
 	@Override
 	public void seeDanger(IReporterHazard reporter, Hazard hazard)
 	{
-		String type;
-		String Description;
-		int level;
+		overseer.seeDanger(reporter, hazard);
+	}
 
-		Scanner sc = new Scanner(System.in);
-		System.out.println("What type of Hazard is this");
-		type = sc.nextLine();
+	/**
+	 * create a new hazard and report hazard to his overseer(supervisor)
+	 */
+	public void seeDanger(){
+		Scanner observationDetails = new Scanner(System.in);
 
-		System.out.println("How would you describe said Hazard?");
-		Description = sc.nextLine();
+		List<String> types = new ArrayList<String>(){
+			{
+				add("Biological");
+				add("Chemical");
+				add("Physical");
+				add("Safety");
+				add("Ergonomic");
+				add("Psychosocial");
+			}
+		};
 
-		System.out.println("On a scale from 1 - 10, How dangerous is this Hazard?");
-		level = sc.nextInt();
+		System.out.printf("Worker %s has observed something hazardous.\n", name);
+		System.out.println("What type of hazard is this?");
+		int i = 1;
+		for (String type: types){
+			System.out.printf("\t[%d] - %s\n", i++, type);
+		}
+		int typeSelection = observationDetails.nextInt()-1;
+		if(typeSelection>=0 && typeSelection < types.size())
+			typeSelection = 4;
+		String type = types.get(typeSelection);
 
-		Hazard h = new Hazard(type, Description, level);
-		hazard = h;
+		System.out.println("On a scale from 1(low) - 10(high), how dangerous is this hazard?");
+		int level = observationDetails.nextInt();
 
-		overseer.seeDanger(this, hazard);
+		System.out.println("Please provide a short description of this hazard:");
+		String desp = observationDetails.nextLine();
+
+		System.out.println("Triggering seeDanger(...) up the chain of responsibility.");
+		seeDanger(this, new Hazard(type, desp, level)); // call internal method
 	}
 
 	/**
