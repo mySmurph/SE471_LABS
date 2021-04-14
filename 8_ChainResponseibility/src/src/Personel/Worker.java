@@ -1,4 +1,4 @@
-// Main.java
+// Worker.java
 package src.Personel;
 
 import src.Actions.Hazard;
