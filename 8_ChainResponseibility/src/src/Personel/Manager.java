@@ -1,10 +1,13 @@
 package src.Personel;
 
 import src.Actions.Decision;
+import src.Actions.Evacuation;
+import src.Actions.FileReport;
 import src.Actions.Hazard;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.Scanner;
 
 public class Manager extends Administrator{
@@ -45,27 +48,28 @@ public class Manager extends Administrator{
 	}
 
 	/**
-	 *
+	 * ask the manager to comme up with some suggestions
 	 * @param hazard
-	 * @return List<Decision>
+	 * @return List<Decision> this managers suggested decisions
 	 */
 	public List<Decision> suggestDecisions(Hazard hazard){
 		List<Decision> mySuggestions = new ArrayList<>();
 
 		Scanner choice = new Scanner(System.in);
-		System.out.println("How big of a problem from 1 - 10 is this issue?");
-		int Priority = choice.nextInt();
+		System.out.printf("Manager %s, please suggest some decisions to the CEO regarding %s.\n", name, hazard.toString());
+		do {
+			System.out.println("Does the area need to be evacuated?\n\t[Yes] - Evacuate the area\n\t[No] - File an incident report");
+			boolean shouldEvacuate = choice.next().toLowerCase(Locale.ROOT).indexOf('y') > 0;
 
-		//We can have user input HOWEVER MySuggestions is an array list of ABSTRACT Decisions
-		//THose consist of Manager, Priority, and Hazard
-		//Decisions however CANT be instantiated
+			System.out.printf("How urgent %s on a scale from 1(low) - 10(high)? ", shouldEvacuate ? "is evacuating the area" : "does a report need to be filed");
+			int priority = choice.nextInt();
 
-		/*Decision Dec = new Decision(this, Priority, hazard);
+			mySuggestions.add(shouldEvacuate ? new Evacuation(this, priority, hazard) : new FileReport(this, priority, hazard));
 
-		mySuggestions.add(Dec);*/
+			System.out.println("Would you like to make an alternate suggestion?\n\t[1] - Suggestion another decision");
+		}while(choice.nextInt()==1);
+		System.out.println("Your suggestions have been recorded.");
 
 		return mySuggestions;
 	}
-
-
 }
