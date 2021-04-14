@@ -60,8 +60,8 @@ public class Main {
         michael.setDirectOverseer(jeff);
 
         //Bob
-        bob.addMember(jack);
         bob.addMember(jeff);
+        bob.addMember(jack);
         jack.setDirectOverseer(bob);
         jeff.setDirectOverseer(bob);
 

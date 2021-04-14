@@ -34,15 +34,15 @@ public class Manager extends Administrator{
 		//ask for feedback
 		boolean tellCEO = true;
 		for(Employee e: members){
-			if(e instanceof Supervisor){
-				tellCEO = tellCEO && ((Supervisor)e).getFeedBack(hazard);
-			}
-			if(!tellCEO)
-				break;
+			if(e instanceof DirectAdministrator)
+				tellCEO = ((DirectAdministrator)e).getFeedBack(hazard) && tellCEO;
 		}
 
 		if(tellCEO && overseer != null)
 			overseer.seeDanger(this, hazard);
+		else{
+			System.out.println("I fail to see why the CEO needs to be informed of this.");
+		}
 	}
 
 	/**
