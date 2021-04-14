@@ -28,8 +28,19 @@ public class Manager extends Administrator{
 	@Override
 	public void seeDanger(IReporterHazard reporter, Hazard hazard) {
 		//ask for feedback
+		boolean tellCEO = true;
+		for(Employee e: members){
+			if(e instanceof Supervisor){
+				tellCEO = tellCEO && ((Supervisor)e).getFeedBack(hazard);
+			}
+			if(!tellCEO)
+				break;
+		}
 
+		if(tellCEO)
+			overseer.seeDanger(this, hazard);
 		//contact CEO
+
 	}
 
 	/**
