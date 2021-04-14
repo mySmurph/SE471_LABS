@@ -32,10 +32,9 @@ public abstract class Employee implements IReporterHazard
 	/**
 	 *   Leave the immediate area
 	 */
-	 //JP: changed it to non-abstract 
-	public void evacuate(){
-		System.out.println(name + " leaving the area");
-	}
+	 //JP: changed it to non-abstract
+	// italic means abstract. this is abstract in employee
+	public abstract void evacuate();
 
 	/**
 	 * set this employee's direct overseer
