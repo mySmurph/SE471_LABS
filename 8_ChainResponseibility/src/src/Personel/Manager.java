@@ -41,10 +41,8 @@ public class Manager extends Administrator{
 				break;
 		}
 
-		if(tellCEO)
+		if(tellCEO && overseer != null)
 			overseer.seeDanger(this, hazard);
-		//contact CEO
-
 	}
 
 	/**
@@ -66,7 +64,7 @@ public class Manager extends Administrator{
 
 			mySuggestions.add(shouldEvacuate ? new Evacuation(this, priority, hazard) : new FileReport(this, priority, hazard));
 
-			System.out.println("Would you like to make an alternate suggestion?\n\t[1] - Suggestion another decision");
+			System.out.println("Would you like to make an alternate suggestion?\n\t[1] - Suggestion another decision\n\t[ANY] - Done");
 		}while(choice.nextInt()==1);
 		System.out.println("Your suggestions have been recorded.");
 

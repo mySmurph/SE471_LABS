@@ -62,6 +62,7 @@ public class Worker extends Employee{
 
 		System.out.println("Please provide a short description of this hazard:");
 		String desp = observationDetails.next();
+		desp += observationDetails.nextLine();
 
 		return new Hazard(type, desp, level);
 	}

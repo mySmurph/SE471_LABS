@@ -37,10 +37,11 @@ public abstract class DirectAdministrator extends Administrator{
 	public void seeDanger(IReporterHazard reporter, Hazard hazard) {
 		System.out.printf("%s instructs team members to fix %s\n", name, hazard.toString());
 		for(Employee e: members){
-			if(e instanceof Worker){
-				((Worker)e).fixIt(hazard);
+			if(e != reporter){
+				e.seeDanger(this, hazard);
 			}
 		}
-		overseer.seeDanger(reporter, hazard);
+		if(overseer != null)
+			overseer.seeDanger(reporter, hazard);
 	}
 }
