@@ -1,3 +1,4 @@
+//ProjectLeader.java
 package src.Personel;
 
 import src.Actions.Decision;
@@ -13,7 +14,6 @@ import java.util.Scanner;
 public class Manager extends Administrator{
 	/**
 	 * constructor
-	 *
 	 * @param name
 	 */
 	public Manager(String name) {
@@ -21,10 +21,8 @@ public class Manager extends Administrator{
 	}
 
 	/**
-	 * Supervisor - tell all his team members to perform fixIt() and also inform their overseer(manager)
 	 * Manager -   handle the danger by asking feedbacks from all supervisors/leaders under his management
 	 * and contacting the CEO in case the feedbacks are all positive(T)
-	 * CEO -       collect suggested decisions from the managers who performed their suggestDecisions method
 	 *
 	 * @param reporter
 	 * @param hazard

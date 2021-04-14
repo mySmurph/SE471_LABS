@@ -1,7 +1,7 @@
+//Administrator.java
 package src.Personel;
 
 import src.Actions.Hazard;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,10 +20,13 @@ public abstract class Administrator extends Employee{
 		members = new ArrayList<Employee>();
 	}
 
+	/**
+	 * add direct employee to this administrator's members
+	 * @param newTeamMember
+	 */
 	public void addMember(Employee newTeamMember){
 		members.add(newTeamMember);
 	}
-
 
 	/**
 	 * Supervisor - tell all his team members to perform fixIt() and also inform their overseer(manager)

@@ -1,6 +1,5 @@
+//ProjectLeader.java
 package src.Personel;
-
-import src.Actions.Hazard;
 
 public class ProjectLeader extends DirectAdministrator{
 	/**

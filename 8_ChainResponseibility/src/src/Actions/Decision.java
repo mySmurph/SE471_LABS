@@ -1,3 +1,4 @@
+//Decision.java
 package src.Actions;
 
 import src.Personel.CEO;
@@ -38,6 +39,10 @@ public abstract class Decision {
 	 */
 	public abstract void execute(CEO commander);
 
+	/**
+	 * get the priority of this decision
+	 * @return
+	 */
 	public int getPriority() {
 		return priority;
 	}

@@ -1,6 +1,5 @@
+// Supervisor.java
 package src.Personel;
-
-import src.Actions.Hazard;
 
 public class Supervisor extends DirectAdministrator{
 	/**

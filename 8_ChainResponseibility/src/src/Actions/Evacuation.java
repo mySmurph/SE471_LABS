@@ -1,3 +1,4 @@
+//Evacuation.java
 package src.Actions;
 
 import src.Personel.CEO;
@@ -6,7 +7,6 @@ import src.Personel.Manager;
 public class Evacuation extends Decision{
 	/**
 	 * constructor
-	 *
 	 * @param suggestedBy
 	 * @param priority
 	 * @param hazard

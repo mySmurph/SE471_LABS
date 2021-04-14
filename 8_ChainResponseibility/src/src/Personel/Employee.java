@@ -1,3 +1,4 @@
+//Employee.java
 package src.Personel;
 
 import src.Actions.Hazard;
@@ -50,6 +51,10 @@ public abstract class Employee implements IReporterHazard
 		return overseer;
 	}
 
+	/**
+	 * get the name of this person
+	 * @return this person's name
+	 */
 	public String getName(){
 		return name;
 	}
