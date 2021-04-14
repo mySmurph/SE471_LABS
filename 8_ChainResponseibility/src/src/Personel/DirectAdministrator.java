@@ -20,7 +20,7 @@ public abstract class DirectAdministrator extends Administrator{
 	 */
 	public boolean getFeedBack(Hazard hazard){
 		boolean feedback = hazard.getHazard_level() >= HAZARD_LEVEL_THRESHOLD;
-		System.out.printf("Feedback from %s is %b", name, feedback);
+		System.out.printf("\nFeedback from %s is %b.\n", name, feedback);
 		return feedback;
 	}
 

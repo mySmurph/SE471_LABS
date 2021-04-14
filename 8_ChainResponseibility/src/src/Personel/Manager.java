@@ -57,7 +57,7 @@ public class Manager extends Administrator{
 		System.out.printf("Manager %s, please suggest some decisions to the CEO regarding %s.\n", name, hazard.toString());
 		do {
 			System.out.println("Does the area need to be evacuated?\n\t[Yes] - Evacuate the area\n\t[No] - File an incident report");
-			boolean shouldEvacuate = choice.next().toLowerCase(Locale.ROOT).indexOf('y') > 0;
+			boolean shouldEvacuate = choice.next().toLowerCase(Locale.ROOT).indexOf('y') >= 0;
 
 			System.out.printf("How urgent %s on a scale from 1(low) - 10(high)? ", shouldEvacuate ? "is evacuating the area" : "does a report need to be filed");
 			int priority = choice.nextInt();
