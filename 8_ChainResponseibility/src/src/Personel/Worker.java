@@ -19,13 +19,20 @@ public class Worker extends Employee{
 	@Override
 	public void seeDanger(IReporterHazard reporter, Hazard hazard)
 	{
-		overseer.seeDanger(reporter, hazard);
+		if(reporter != null){
+			fixIt(hazard);
+		}else{
+			hazard = documentHazard();
+			fixIt(hazard);
+			overseer.seeDanger(this, hazard);
+		}
 	}
 
 	/**
-	 * create a new hazard and report hazard to his overseer(supervisor)
+	 * create a new hazard
+	 * @return hazard
 	 */
-	public void seeDanger(){
+	private Hazard documentHazard(){
 		Scanner observationDetails = new Scanner(System.in);
 
 		List<String> types = new ArrayList<String>(){
@@ -47,7 +54,7 @@ public class Worker extends Employee{
 		}
 		int typeSelection = observationDetails.nextInt()-1;
 		if(typeSelection<0 || typeSelection >= types.size())
-			typeSelection = 3;
+			typeSelection = types.indexOf("Safety");// if they select something weird default to safety hazard
 		String type = types.get(typeSelection);
 
 		System.out.println("On a scale from 1(low) - 10(high), how dangerous is this hazard?");
@@ -56,8 +63,7 @@ public class Worker extends Employee{
 		System.out.println("Please provide a short description of this hazard:");
 		String desp = observationDetails.next();
 
-		System.out.println("Triggering seeDanger(...) up the chain of responsibility.");
-		seeDanger(this, new Hazard(type, desp, level)); // call internal method
+		return new Hazard(type, desp, level);
 	}
 
 	/**
