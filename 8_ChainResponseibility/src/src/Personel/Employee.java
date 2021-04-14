@@ -32,8 +32,6 @@ public abstract class Employee implements IReporterHazard
 	/**
 	 *   Leave the immediate area
 	 */
-	 //JP: changed it to non-abstract
-	// italic means abstract. this is abstract in employee
 	public abstract void evacuate();
 
 	/**

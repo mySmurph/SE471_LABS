@@ -95,9 +95,7 @@ public class Main {
         steve.addMember(bob);
         steve.addMember(rachel);
         bob.setDirectOverseer(steve);
-        rachel.setDirectOverseer(bob);
-
-
+        rachel.setDirectOverseer(steve);
 
 
     }

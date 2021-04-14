@@ -27,9 +27,20 @@ public class CEO extends Administrator{
 	 */
 	@Override
 	public void seeDanger(IReporterHazard reporter, Hazard hazard) {
-
+		//collect suggestions
+		List<Decision> gatheredDS = new ArrayList<>();
+		for(Employee admin: members){
+			if(admin instanceof Manager)
+				gatheredDS.addAll(((Manager)admin).suggestDecisions(hazard));
+		}
+		implementDecision(gatheredDS);
 	}
 
+	/**
+	 * given a list of decisions, order the list by priority
+	 * @param ds a list of Decisions
+	 * @return an ordered list of Decisions
+	 */
 	private List<Decision> sortByPriority(List<Decision> ds){
 		List<Decision> orderedDS = new ArrayList<>();
 		while(!ds.isEmpty()){
@@ -41,6 +52,17 @@ public class CEO extends Administrator{
 			orderedDS.add(topPriority);
 		}
 		return orderedDS;
+	}
+
+	/**
+	 * given a list of decision the CEO sorts through them and executes some of the decisions
+	 * @param ds a list of decisions
+	 */
+	public void implementDecision(List<Decision> ds){
+		ds = sortByPriority(ds);
+		int dsToBeExecuted = 2;
+		while (!ds.isEmpty() && dsToBeExecuted-- > 0)
+			ds.remove(0).execute(this);
 	}
 
 	public void report(){
