@@ -189,7 +189,25 @@ public enum TileType {
 			true,	true,	false,
 			true,	false,	false,
 		}
-	});
+	}),
+	
+//	//added point to test
+//	Point(Color.gray, 1, 1, 1, new boolean[][] {
+//		{
+//			true
+//		},
+//		{
+//			true
+//		},
+//		{	
+//			true
+//		},
+//		{
+//			true
+//		}
+//	}),
+//	
+	;
 		
 	/**
 	 * The base color of tiles of this type.
