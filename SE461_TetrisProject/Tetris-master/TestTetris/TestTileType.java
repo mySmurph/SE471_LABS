@@ -20,11 +20,11 @@ public class TestTileType {
 	public void tearDown() throws Exception {
 		tt = null;
 	}
-
+/*
 	@Test
 	public void testGetBaseColor() {
 		try {
-			Color bc = getBaseColor("red");
+			Color bc = getBaseColor();
 			assertNotNull(bc); //checking object if not null
 			
 			assertTrue(true, bc instanceof Color); //check if base color is object of class
@@ -57,43 +57,42 @@ public class TestTileType {
 			fail("Caught exception");
 		}
 	}
-
+*/
 	@Test
 	public void testGetDimension() {
-		assertEquals("Getting Dimension", 5, tt.getDimension());
+		assertEquals(5, tt.getDimension());
 	}
 
 	@Test
 	public void testGetSpawnColumn() {
-		assertEquals("Getting Spawn Column", 8, tt.getSpawnColumn());
+		assertEquals(8, tt.getSpawnColumn());
 	}
 
 	@Test
 	public void testGetSpawnRow() {
-		assertEquals("Getting Spawn Row", 0, tt.getSpawnRow());
+		assertEquals(0, tt.getSpawnRow());
 	}
 
 	@Test
 	public void testGetRows() {
 		//20 rows
-		assertEquals("Getting Rows", 9, tt.getRows());
+		assertEquals(9, tt.getRows());
 	}
 
 	@Test 
 	public void testGetCols() {
 		//10 columns
-		assertEquals("Getting Columns", 9, tt.getCols());
+		assertEquals(9, tt.getCols());
 	}
-
+/*
 	@Test
 	public void testIsTile() {
-	
-
+		assertEquals([5][9], tt.isTile(5, 4, 5));
 	}
 
 	@Test
 	public void testGetLeftInset() {
-		assertEquals(5,tt.getLeftInset());
+		assertEquals(95,tt.getLeftInset(5));
 		//fail("Not yet implemented");
 	}
 
@@ -111,5 +110,5 @@ public class TestTileType {
 	public void testGetBottomInset() {
 		fail("Not yet implemented");
 	}
-
+*/
 }
