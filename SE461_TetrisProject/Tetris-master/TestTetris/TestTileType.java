@@ -1,5 +1,7 @@
 import static org.junit.Assert.*;
 
+import java.awt.Color;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -13,21 +15,22 @@ public class TestTileType {
 
 	@Before
 	public void setUp() throws Exception {
-		tt = new TileType();
+		tt = TileType.TypeI;
 	}
 
 	@After
 	public void tearDown() throws Exception {
 		tt = null;
 	}
-/*
+
 	@Test
 	public void testGetBaseColor() {
+		tt = TileType.TypeI;
 		try {
-			Color bc = getBaseColor();
-			assertNotNull(bc); //checking object if not null
+			Color bc = new Color(BoardPanel.COLOR_MIN, BoardPanel.COLOR_MAX, BoardPanel.COLOR_MAX);
+			//assertNotNull(bc); //checking object if not null
 			
-			assertTrue(true, bc instanceof Color); //check if base color is object of class
+			assertEquals(bc, tt.getBaseColor()); //check if base color is object of class
 		}catch(Exception e) {
 			fail("Caught exception");
 		}
@@ -36,11 +39,13 @@ public class TestTileType {
 	
 	@Test
 	public void testGetLightColor() {
+		tt = TileType.TypeJ;
 		try {
-			Color lc = getLightColor();
-			assertNotNull(lc); //checking object if not null
+			Color lc = new Color(BoardPanel.COLOR_MIN, BoardPanel.COLOR_MIN, BoardPanel.COLOR_MAX);
+			//assertNotNull(lc); //checking object if not null
+			lc = lc.brighter();
 			
-			assertTrue(true, lc instanceof Color); //check if base color is object of class
+			assertEquals(lc, tt.getLightColor()); //check if base color is object of class
 		}catch(Exception e) {
 			fail("Caught exception");
 		}
@@ -48,16 +53,18 @@ public class TestTileType {
 
 	@Test
 	public void testGetDarkColor() {
+		tt = TileType.TypeS;
 		try {
-			Color dc = getDarkColor();
-			assertNotNull(dc); //checking object if not null
+			Color dc = new Color(BoardPanel.COLOR_MIN, BoardPanel.COLOR_MAX, BoardPanel.COLOR_MIN);
+			//assertNotNull(lc); //checking object if not null
+			dc = dc.darker();
 			
-			assertTrue(true, dc instanceof Color); //check if base color is object of class
+			assertEquals(dc, tt.getDarkColor()); //check if base color is object of class
 		}catch(Exception e) {
 			fail("Caught exception");
 		}
 	}
-*/
+/*
 	@Test
 	public void testGetDimension() {
 		assertEquals(5, tt.getDimension());
@@ -84,7 +91,7 @@ public class TestTileType {
 		//10 columns
 		assertEquals(9, tt.getCols());
 	}
-/*
+
 	@Test
 	public void testIsTile() {
 		assertEquals([5][9], tt.isTile(5, 4, 5));
