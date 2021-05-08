@@ -561,7 +561,7 @@ public class Tetris extends JFrame {
 	 */
 	public static void main(String[] args) {
 		Tetris tetris = new Tetris();
-//		tetris.startGame();
+		tetris.startGame();
 	}
 
 }
