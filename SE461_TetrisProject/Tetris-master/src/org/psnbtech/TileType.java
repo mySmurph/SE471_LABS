@@ -190,73 +190,57 @@ public enum TileType {
 			true,	false,	false,
 		}
 	}),
-	
-//	//added point to test
-//	Point(Color.gray, 1, 1, 1, new boolean[][] {
-//		{
-//			true
-//		},
-//		{
-//			true
-//		},
-//		{	
-//			true
-//		},
-//		{
-//			true
-//		}
-//	}),
-//	
+
 	;
 		
 	/**
 	 * The base color of tiles of this type.
 	 */
-	private Color baseColor;
+	public Color baseColor;
 	
 	/**
 	 * The light shading color of tiles of this type.
 	 */
-	private Color lightColor;
+	public Color lightColor;
 	
 	/**
 	 * The dark shading color of tiles of this type.
 	 */
-	private Color darkColor;
+	public Color darkColor;
 	
 	/**
 	 * The column that this type spawns in.
 	 */
-	private int spawnCol;
+	public int spawnCol;
 	
 	/**
 	 * The row that this type spawns in.
 	 */
-	private int spawnRow;
+	public int spawnRow;
 	
 	/**
 	 * The dimensions of the array for this piece.
 	 */
-	private int dimension;
+	public int dimension;
 	
 	/**
 	 * The number of rows in this piece. (Only valid when rotation is 0 or 2,
 	 * but it's fine since we're only using it for displaying the next piece
 	 * preview, which uses rotation 0).
 	 */
-	private int rows;
+	public int rows;
 	
 	/**
 	 * The number of columns in this piece. (Only valid when rotation is 0 or 2,
 	 * but it's fine since we're only using it for displaying the next piece
 	 * preview, which uses rotation 0).
 	 */
-	private int cols;
+	public int cols;
 	
 	/**
 	 * The tiles for this piece. Each piece has an array of tiles for each rotation.
 	 */
-	private boolean[][] tiles;
+	public boolean[][] tiles;
 	
 	/**
 	 * Creates a new TileType.
@@ -266,7 +250,7 @@ public enum TileType {
 	 * @param rows The number of rows.
 	 * @param tiles The tiles.
 	 */
-	private TileType(Color color, int dimension, int cols, int rows, boolean[][] tiles) {
+	TileType(Color color, int dimension, int cols, int rows, boolean[][] tiles) {
 		this.baseColor = color;
 		this.lightColor = color.brighter();
 		this.darkColor = color.darker();

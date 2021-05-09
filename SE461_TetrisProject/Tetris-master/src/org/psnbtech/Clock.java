@@ -11,7 +11,7 @@ public class Clock {
 	/**
 	 * The number of milliseconds that make up one cycle.
 	 */
-	private float millisPerCycle;
+	public float millisPerCycle;
 	
 	/**
 	 * The last time that the clock was updated (used for calculating the
