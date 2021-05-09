@@ -28,9 +28,8 @@ public class TestTileType {
 		tt = TileType.TypeI;
 		try {
 			Color bc = new Color(BoardPanel.COLOR_MIN, BoardPanel.COLOR_MAX, BoardPanel.COLOR_MAX);
-			//assertNotNull(bc); //checking object if not null
 			
-			assertEquals(bc, tt.getBaseColor()); //check if base color is object of class
+			assertEquals(bc, tt.getBaseColor()); 
 		}catch(Exception e) {
 			fail("Caught exception");
 		}
@@ -42,10 +41,10 @@ public class TestTileType {
 		tt = TileType.TypeJ;
 		try {
 			Color lc = new Color(BoardPanel.COLOR_MIN, BoardPanel.COLOR_MIN, BoardPanel.COLOR_MAX);
-			//assertNotNull(lc); //checking object if not null
+
 			lc = lc.brighter();
 			
-			assertEquals(lc, tt.getLightColor()); //check if base color is object of class
+			assertEquals(lc, tt.getLightColor()); 
 		}catch(Exception e) {
 			fail("Caught exception");
 		}
@@ -56,42 +55,74 @@ public class TestTileType {
 		tt = TileType.TypeS;
 		try {
 			Color dc = new Color(BoardPanel.COLOR_MIN, BoardPanel.COLOR_MAX, BoardPanel.COLOR_MIN);
-			//assertNotNull(lc); //checking object if not null
+
 			dc = dc.darker();
 			
-			assertEquals(dc, tt.getDarkColor()); //check if base color is object of class
+			assertEquals(dc, tt.getDarkColor());
 		}catch(Exception e) {
 			fail("Caught exception");
 		}
 	}
-/*
+
 	@Test
 	public void testGetDimension() {
-		assertEquals(5, tt.getDimension());
+		tt = TileType.TypeS;
+		try {
+			assertEquals(3, tt.getDimension());
+		}catch(Exception e) {
+			fail("Caught exception");
+		}
 	}
 
 	@Test
 	public void testGetSpawnColumn() {
-		assertEquals(8, tt.getSpawnColumn());
+		tt = TileType.TypeS;
+		try {
+			assertEquals(4, tt.getSpawnColumn());
+		}catch(Exception e) {
+			fail("Caught exception");
+		}
 	}
 
 	@Test
 	public void testGetSpawnRow() {
-		assertEquals(0, tt.getSpawnRow());
+		tt = TileType.TypeS;
+		try {
+			assertEquals(0, tt.getSpawnRow());
+		}catch(Exception e) {
+			fail("Caught exception");
+		}
 	}
 
 	@Test
 	public void testGetRows() {
 		//20 rows
-		assertEquals(9, tt.getRows());
+		tt = TileType.TypeS;
+		try {
+			assertEquals(2, tt.getRows());
+		}catch(Exception e) {
+			fail("Caught exception");
+		}
 	}
 
 	@Test 
 	public void testGetCols() {
 		//10 columns
-		assertEquals(9, tt.getCols());
+		tt = TileType.TypeS;
+		try {
+			assertEquals(3, tt.getCols());
+		}catch(Exception e) {
+			fail("Caught exception");
+		}
+		
+		tt = TileType.TypeZ;
+		try {
+			assertEquals(3, tt.getCols());
+		}catch(Exception e) {
+			fail("Caught exception");
+		}
 	}
-
+/*
 	@Test
 	public void testIsTile() {
 		assertEquals([5][9], tt.isTile(5, 4, 5));
