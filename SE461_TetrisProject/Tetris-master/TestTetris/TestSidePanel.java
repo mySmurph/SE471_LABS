@@ -2,7 +2,6 @@ import static org.junit.Assert.*;
 
 import java.awt.Color;
 import java.awt.Dimension;
-//import java.time.Clock;
 import java.awt.Graphics;
 import java.util.Scanner;
 
@@ -18,8 +17,10 @@ import org.psnbtech.*;
 public class TestSidePanel {
 
 	private SidePanel sp; 
+	private Scanner testerInput;
 	@Before
 	public void setUp() throws Exception {
+		testerInput = AllTests.testerInput;
 		sp  = new SidePanel(null);
 	}
 
@@ -76,7 +77,7 @@ public class TestSidePanel {
 		frame.pack();
 		frame.setVisible(true);
 		
-		Scanner testerInput = new Scanner(System.in); 
+//		Scanner testerInput = new Scanner(System.in); 
 		
 		TileType[] expectedTile = {TileType.TypeO, TileType.TypeS, null};
 		int[] expectedScore = {123, -321, 0};
@@ -121,7 +122,7 @@ public class TestSidePanel {
 		    assertEquals(expectedLevel[i], Integer.parseInt(actualLevel));
 		}
 	
-	    testerInput.close();
+//	    testerInput.close();
 		frame.dispose();
 	}
 	

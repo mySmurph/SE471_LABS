@@ -15,8 +15,10 @@ import org.psnbtech.*;
 public class TestBoardPanel {
 
 	private BoardPanel bp;
+	private Scanner testerInput;
 	@Before
 	public void setUp() throws Exception {
+		testerInput = AllTests.testerInput;
 		bp = new BoardPanel(null);
 	}
 
@@ -982,7 +984,7 @@ public class TestBoardPanel {
 		frame.pack();
 		frame.setVisible(true);
 		
-		Scanner testerInput = new Scanner(System.in);
+//		Scanner testerInput = new Scanner(System.in);
 		// State [0] Active board
 		t.isPaused = false;
 		t.isNewGame = false;
@@ -1055,7 +1057,7 @@ public class TestBoardPanel {
 			bp.repaint();
 			assertEquals('p', getTesterInput(testerInput));
 
-		testerInput.close();
+//		testerInput.close();
 		frame.dispose();
 	}
 	
