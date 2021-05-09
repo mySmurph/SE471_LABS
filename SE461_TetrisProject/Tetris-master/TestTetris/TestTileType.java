@@ -122,12 +122,19 @@ public class TestTileType {
 			fail("Caught exception");
 		}
 	}
-/*
+
 	@Test
 	public void testIsTile() {
-		assertEquals([5][9], tt.isTile(5, 4, 5));
+		tt = TileType.TypeI;
+		
+		assertFalse(tt.isTile(0, 0, 0)); 
+		assertFalse(tt.isTile(1, 0, 0));
+		assertFalse(tt.isTile(2, 0, 0));
+		assertFalse(tt.isTile(3, 0, 0));
+		
+		
 	}
-
+/*
 	@Test
 	public void testGetLeftInset() {
 		assertEquals(95,tt.getLeftInset(5));
