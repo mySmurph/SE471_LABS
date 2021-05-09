@@ -1,67 +1,137 @@
 import static org.junit.Assert.*;
 
+import java.awt.Color;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.psnbtech.*;
+
 
 public class TestTileType {
+	
+	private TileType tt;
+	
 
 	@Before
 	public void setUp() throws Exception {
+		tt = TileType.TypeI;
 	}
 
 	@After
 	public void tearDown() throws Exception {
+		tt = null;
 	}
 
 	@Test
 	public void testGetBaseColor() {
-		fail("Not yet implemented");
+		tt = TileType.TypeI;
+		try {
+			Color bc = new Color(BoardPanel.COLOR_MIN, BoardPanel.COLOR_MAX, BoardPanel.COLOR_MAX);
+			
+			assertEquals(bc, tt.getBaseColor()); 
+		}catch(Exception e) {
+			fail("Caught exception");
+		}
 	}
 
+	
 	@Test
 	public void testGetLightColor() {
-		fail("Not yet implemented");
+		tt = TileType.TypeJ;
+		try {
+			Color lc = new Color(BoardPanel.COLOR_MIN, BoardPanel.COLOR_MIN, BoardPanel.COLOR_MAX);
+
+			lc = lc.brighter();
+			
+			assertEquals(lc, tt.getLightColor()); 
+		}catch(Exception e) {
+			fail("Caught exception");
+		}
 	}
 
 	@Test
 	public void testGetDarkColor() {
-		fail("Not yet implemented");
+		tt = TileType.TypeS;
+		try {
+			Color dc = new Color(BoardPanel.COLOR_MIN, BoardPanel.COLOR_MAX, BoardPanel.COLOR_MIN);
+
+			dc = dc.darker();
+			
+			assertEquals(dc, tt.getDarkColor());
+		}catch(Exception e) {
+			fail("Caught exception");
+		}
 	}
 
 	@Test
 	public void testGetDimension() {
-		fail("Not yet implemented");
+		tt = TileType.TypeS;
+		try {
+			assertEquals(3, tt.getDimension());
+		}catch(Exception e) {
+			fail("Caught exception");
+		}
 	}
 
 	@Test
 	public void testGetSpawnColumn() {
-		fail("Not yet implemented");
+		tt = TileType.TypeS;
+		try {
+			assertEquals(4, tt.getSpawnColumn());
+		}catch(Exception e) {
+			fail("Caught exception");
+		}
 	}
 
 	@Test
 	public void testGetSpawnRow() {
-		fail("Not yet implemented");
+		tt = TileType.TypeS;
+		try {
+			assertEquals(0, tt.getSpawnRow());
+		}catch(Exception e) {
+			fail("Caught exception");
+		}
 	}
 
 	@Test
 	public void testGetRows() {
-		fail("Not yet implemented");
+		//20 rows
+		tt = TileType.TypeS;
+		try {
+			assertEquals(2, tt.getRows());
+		}catch(Exception e) {
+			fail("Caught exception");
+		}
 	}
 
-	@Test
+	@Test 
 	public void testGetCols() {
-		fail("Not yet implemented");
+		//10 columns
+		tt = TileType.TypeS;
+		try {
+			assertEquals(3, tt.getCols());
+		}catch(Exception e) {
+			fail("Caught exception");
+		}
+		
+		tt = TileType.TypeZ;
+		try {
+			assertEquals(3, tt.getCols());
+		}catch(Exception e) {
+			fail("Caught exception");
+		}
 	}
-
+/*
 	@Test
 	public void testIsTile() {
-		fail("Not yet implemented");
+		assertEquals([5][9], tt.isTile(5, 4, 5));
 	}
 
 	@Test
 	public void testGetLeftInset() {
-		fail("Not yet implemented");
+		assertEquals(95,tt.getLeftInset(5));
+		//fail("Not yet implemented");
 	}
 
 	@Test
@@ -78,5 +148,5 @@ public class TestTileType {
 	public void testGetBottomInset() {
 		fail("Not yet implemented");
 	}
-
+*/
 }

@@ -18,7 +18,7 @@ public class BoardPanel extends JPanel {
 	/**
 	 * Serial Version UID.
 	 */
-	private static final long serialVersionUID = 5055679736784226108L;
+	public static final long serialVersionUID = 5055679736784226108L;
 
 	/**
 	 * Minimum color component values for tiles. This is required if we
@@ -35,7 +35,7 @@ public class BoardPanel extends JPanel {
 	/**
 	 * The width of the border around the game board.
 	 */
-	private static final int BORDER_WIDTH = 5;
+	public static final int BORDER_WIDTH = 5;
 	
 	/**
 	 * The number of columns on the board.
@@ -45,12 +45,12 @@ public class BoardPanel extends JPanel {
 	/**
 	 * The number of visible rows on the board.
 	 */
-	private static final int VISIBLE_ROW_COUNT = 20;
+	public static final int VISIBLE_ROW_COUNT = 20;
 	
 	/**
 	 * The number of rows that are hidden from view.
 	 */
-	private static final int HIDDEN_ROW_COUNT = 2;
+	public static final int HIDDEN_ROW_COUNT = 2;
 	
 	/**
 	 * The total number of rows that the board contains.
@@ -70,12 +70,12 @@ public class BoardPanel extends JPanel {
 	/**
 	 * The central x coordinate on the game board.
 	 */
-	private static final int CENTER_X = COL_COUNT * TILE_SIZE / 2;
+	public static final int CENTER_X = COL_COUNT * TILE_SIZE / 2;
 	
 	/**
 	 * The central y coordinate on the game board.
 	 */
-	private static final int CENTER_Y = VISIBLE_ROW_COUNT * TILE_SIZE / 2;
+	public static final int CENTER_Y = VISIBLE_ROW_COUNT * TILE_SIZE / 2;
 		
 	/**
 	 * The total width of the panel.
@@ -90,22 +90,22 @@ public class BoardPanel extends JPanel {
 	/**
 	 * The larger font to display.
 	 */
-	private static final Font LARGE_FONT = new Font("Tahoma", Font.BOLD, 16);
+	public static final Font LARGE_FONT = new Font("Tahoma", Font.BOLD, 16);
 
 	/**
 	 * The smaller font to display.
 	 */
-	private static final Font SMALL_FONT = new Font("Tahoma", Font.BOLD, 12);
+	public static final Font SMALL_FONT = new Font("Tahoma", Font.BOLD, 12);
 	
 	/**
 	 * The Tetris instance.
 	 */
-	private Tetris tetris;
+	public Tetris tetris;
 	
 	/**
 	 * The tiles that make up the board.
 	 */
-	private TileType[][] tiles;
+	public TileType[][] tiles;
 		
 	/**
 	 * Crates a new GameBoard instance.
@@ -222,14 +222,15 @@ public class BoardPanel extends JPanel {
 	 * @param line The row to check.
 	 * @return Whether or not this row is full.
 	 */
-	private boolean checkLine(int line) {
+	public boolean checkLine(int line) {
 		/*
 		 * Iterate through every column in this row. If any of them are
 		 * empty, then the row is not full.
 		 */
 		for(int col = 0; col < COL_COUNT; col++) {
 			if(!isOccupied(col, line)) {
-				return true;
+//				return true; // << BUG!! should return FALSE
+				return false;
 			}
 		}
 		
@@ -252,7 +253,7 @@ public class BoardPanel extends JPanel {
 	 * @param y The y coordinate to check.
 	 * @return Whether or not the tile is occupied.
 	 */
-	private boolean isOccupied(int x, int y) {
+	public boolean isOccupied(int x, int y) {
 		return tiles[y][x] != null;
 	}
 	
@@ -262,7 +263,7 @@ public class BoardPanel extends JPanel {
 	 * @param y The row.
 	 * @param type The value to set to the tile to.
 	 */
-	private void setTile(int  x, int y, TileType type) {
+	public void setTile(int  x, int y, TileType type) {
 		tiles[y][x] = type;
 	}
 		
@@ -272,7 +273,7 @@ public class BoardPanel extends JPanel {
 	 * @param y The row.
 	 * @return The tile.
 	 */
-	private TileType getTile(int x, int y) {
+	public TileType getTile(int x, int y) {
 		return tiles[y][x];
 	}
 	
@@ -394,7 +395,7 @@ public class BoardPanel extends JPanel {
 	 * @param y The row.
 	 * @param g The graphics object.
 	 */
-	private void drawTile(TileType type, int x, int y, Graphics g) {
+	public void drawTile(TileType type, int x, int y, Graphics g) {
 		drawTile(type.getBaseColor(), type.getLightColor(), type.getDarkColor(), x, y, g);
 	}
 	
@@ -407,7 +408,7 @@ public class BoardPanel extends JPanel {
 	 * @param y The row.
 	 * @param g The graphics object.
 	 */
-	private void drawTile(Color base, Color light, Color dark, int x, int y, Graphics g) {
+	public void drawTile(Color base, Color light, Color dark, int x, int y, Graphics g) {
 		
 		/*
 		 * Fill the entire tile with the base color.
