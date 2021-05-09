@@ -122,7 +122,7 @@ public class TestTileType {
 			fail("Caught exception");
 		}
 	}
-
+	
 	@Test
 	public void testIsTile() {
 		tt = TileType.TypeI;
@@ -132,28 +132,67 @@ public class TestTileType {
 		assertFalse(tt.isTile(2, 0, 0));
 		assertFalse(tt.isTile(3, 0, 0));
 		
+		assertTrue(tt.isTile(0, 1, 0)); 
+		assertTrue(tt.isTile(0, 1, 0));
+		assertTrue(tt.isTile(0, 1, 0));
+		assertTrue(tt.isTile(0, 1, 0));
 		
+		assertFalse(tt.isTile(0, 0, 0)); 
+		assertFalse(tt.isTile(0, 0, 1));
+		assertFalse(tt.isTile(0, 0, 2));
+		assertFalse(tt.isTile(0, 0, 3));
+		
+		assertFalse(tt.isTile(0, 0, 0)); 
+		assertFalse(tt.isTile(1, 0, 0));
+		assertFalse(tt.isTile(0, 2, 0));
+		assertFalse(tt.isTile(0, 0, 3));
 	}
-/*
+	
 	@Test
 	public void testGetLeftInset() {
-		assertEquals(95,tt.getLeftInset(5));
-		//fail("Not yet implemented");
+		//testing values 0-3 for tile type I, passing values 0-3 because max length is 3
+		
+		assertEquals(1,tt.getLeftInset(3));
+		assertEquals(0,tt.getLeftInset(2));
+		assertEquals(2,tt.getLeftInset(1));
+		assertEquals(0,tt.getLeftInset(0));
+	
 	}
-
+	
 	@Test
 	public void testGetRightInset() {
-		fail("Not yet implemented");
+		//testing values for tile type J
+		
+		tt = TileType.TypeJ; 
+		
+		assertEquals(2,tt.getRightInset(3));
+		assertEquals(1,tt.getRightInset(2));
+		assertEquals(1,tt.getRightInset(1));
+		assertEquals(1,tt.getRightInset(0));
 	}
+	
+	
 
 	@Test
 	public void testGetTopInset() {
-		fail("Not yet implemented");
+		tt = TileType.TypeS; 
+		
+		assertEquals(0,tt.getTopInset(3));
+		assertEquals(1,tt.getTopInset(2));
+		assertEquals(0,tt.getTopInset(1));
+		assertEquals(0,tt.getTopInset(0));
+			
 	}
 
 	@Test
 	public void testGetBottomInset() {
-		fail("Not yet implemented");
+		tt = TileType.TypeO;
+		
+		assertEquals(1,tt.getBottomInset(3));
+		assertEquals(1,tt.getBottomInset(2));
+		assertEquals(1,tt.getBottomInset(1));
+		assertEquals(1,tt.getBottomInset(0));
+		
 	}
-*/
+
 }
