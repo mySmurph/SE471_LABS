@@ -38,14 +38,12 @@ public class TestClock {
 	@Test
 	public void testReset() {
 		//fail("Not yet implemented");
-		float startTime = System.nanoTime() / 1000000L;
+		long startTime = System.nanoTime() / 1000000L;
 		tc.reset();
+		long endTime = System.nanoTime() / 1000000L;
 		assertEquals(0, tc.elapsedCycles);
 		assertEquals(0f, tc.excessCycles, 0.0002f);
-		System.out.print(tc.lastUpdate);
-		System.out.println();
-		System.out.print(startTime);
-		assertTrue(startTime < tc.lastUpdate);
+		assertTrue(startTime <= tc.lastUpdate && endTime >= tc.lastUpdate);
 		assertEquals(false, tc.isPaused);
 		
 	}
