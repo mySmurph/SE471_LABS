@@ -332,6 +332,7 @@ public class BoardPanel extends JPanel {
 			int rotation = tetris.getPieceRotation();
 			
 			//Draw the piece onto the board.
+			if(type != null) { // << test
 			for(int col = 0; col < type.getDimension(); col++) {
 				for(int row = 0; row < type.getDimension(); row++) {
 					if(pieceRow + row >= 2 && type.isTile(col, row, rotation)) {
@@ -364,10 +365,9 @@ public class BoardPanel extends JPanel {
 						}
 					}
 				}
-				
 				break;
 			}
-			
+			}
 			/*
 			 * Draw the background grid above the pieces (serves as a useful visual
 			 * for players, and makes the pieces look nicer by breaking them up.

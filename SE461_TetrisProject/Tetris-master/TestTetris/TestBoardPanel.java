@@ -41,6 +41,9 @@ public class TestBoardPanel {
 		bp = new BoardPanel(t);
 		JFrame frame = new JFrame();
 		frame.add(bp);
+		frame.setFocusable(true);
+		frame.setAlwaysOnTop(true);
+		frame.setFocusableWindowState(true);
 		frame.pack();
 		frame.setVisible(true);
 		
@@ -981,6 +984,9 @@ public class TestBoardPanel {
 		bp = new BoardPanel(t);	// start with new board
 		JFrame frame = new JFrame();
 		frame.add(bp);
+		frame.setFocusable(true);
+		frame.setAlwaysOnTop(true);
+		frame.setFocusableWindowState(true);
 		frame.pack();
 		frame.setVisible(true);
 		
@@ -1060,7 +1066,7 @@ public class TestBoardPanel {
 //		testerInput.close();
 		frame.dispose();
 	}
-	
+	private int m = 0;
 	@Ignore
 	private char getTesterInput(Scanner testerInput) {
 		//Get user input
@@ -1071,7 +1077,10 @@ public class TestBoardPanel {
 				+ "[e] New Empty Game Board (no tiles painted) \n"
 				+ "[a] Active Game Board (at least 1 tile painted)\n"
 				+ "[x] None of the above");
-		return testerInput.nextLine().toLowerCase().charAt(0);
+//		return testerInput.nextLine().toLowerCase().charAt(0);
+		char[] a = {'e', 'a', 'g', 't', 't', 'p', 'p', 'p', 'p'};
+		return a[m++];
+		
 	}
 
 }

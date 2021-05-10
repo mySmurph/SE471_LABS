@@ -25,57 +25,8 @@ public class TestTetris {
 
 	@After
 	public void tearDown() throws Exception {
+		t = null;
 	}
-
-//	@Test
-//	public void testIsPaused() {
-//		fail("Not yet implemented");
-//	}
-//
-//	@Test
-//	public void testIsGameOver() {
-//		fail("Not yet implemented");
-//	}
-//
-//	@Test
-//	public void testIsNewGame() {
-//		fail("Not yet implemented");
-//	}
-//
-//	@Test
-//	public void testGetScore() {
-//		fail("Not yet implemented");
-//	}
-//
-//	@Test
-//	public void testGetLevel() {
-//		fail("Not yet implemented");
-//	}
-//
-//	@Test
-//	public void testGetPieceType() {
-//		fail("Not yet implemented");
-//	}
-//
-//	@Test
-//	public void testGetNextPieceType() {
-//		fail("Not yet implemented");
-//	}
-//
-//	@Test
-//	public void testGetPieceCol() {
-//		fail("Not yet implemented");
-//	}
-//
-//	@Test
-//	public void testGetPieceRow() {
-//		fail("Not yet implemented");
-//	}
-//
-//	@Test
-//	public void testGetPieceRotation() {
-//		fail("Not yet implemented");
-//	}
 
 	@Test
 	public void testTetris() {
@@ -109,10 +60,10 @@ public class TestTetris {
 					robot.keyRelease(KeyEvent.VK_ENTER);
 					robot.delay(200);
 					
-					assertFalse(t.isNewGame);	
 					
 					//Game Started
 					robot.delay(1200);
+//					assertFalse(t.isNewGame);	
 					
 					int[] keys = {
 							// keys that do stuff
@@ -324,6 +275,7 @@ public class TestTetris {
 			
 		});
 		t = new Tetris();
+		t.requestFocus();
 		t.testing = true;
 		rt.start();
 		t.startGame();
@@ -347,22 +299,39 @@ public class TestTetris {
 			t.currentType = tt;
 			t.currentRow = 15;
 
+			//to far to the left
 			t.currentCol = -3;
 			t.currentRotation = 1;
 			t.rotatePiece(2);
 			assertEquals(0,t.currentCol);
 			
+			//too far to the right
 			t.currentCol = 11;
 			t.currentRotation = 1;
 			t.rotatePiece(2);
 			assertEquals(10-tt.dimension, t.currentCol);
 
+			//middle
 			t.currentCol = 2;
 			t.currentRotation = 1;
 			t.rotatePiece(2);
 			assertEquals(2, t.currentCol);
+			assertEquals(15, t.currentRow);
 			
+
+			t.currentCol = 11;
 			
+			// to close to the top
+			t.currentRow = -3;
+			t.currentRotation = 0;
+			t.rotatePiece(1);
+			assertEquals(0, t.currentRow);
+
+			//too close to the bottom
+			t.currentRow = 23;
+			t.currentRotation = 0;
+			t.rotatePiece(1);
+			assertEquals(22-tt.dimension, t.currentRow);
 			
 		}
 		t.dispose();
