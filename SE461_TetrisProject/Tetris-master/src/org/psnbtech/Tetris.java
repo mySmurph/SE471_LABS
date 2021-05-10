@@ -261,6 +261,7 @@ public class Tetris extends JFrame {
 		setVisible(true);
 	}
 	
+	public boolean testing = true;
 	/**
 	 * Starts the game running. Initializes everything and enters the game loop.
 	 */
@@ -279,7 +280,8 @@ public class Tetris extends JFrame {
 		this.logicTimer = new Clock(gameSpeed);
 		logicTimer.setPaused(true);
 		
-		while(true) {
+//		while(true) {
+		while(testing) { // <---- added to control by tester for TestTetris::testStartGameRandom()
 			//Get the time that the frame started.
 			long start = System.nanoTime();
 			
