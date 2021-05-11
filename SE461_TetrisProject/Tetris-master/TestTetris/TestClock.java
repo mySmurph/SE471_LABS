@@ -23,7 +23,6 @@ public class TestClock {
 
 	@Test
 	public void testClock() {
-		//fail("Not yet implemented");
 		testSetCyclesPerSecond();
 		testReset();
 	}
@@ -31,8 +30,7 @@ public class TestClock {
 
 	@Test
 	public void testSetCyclesPerSecond() {
-		//fail("Not yet implemented");
-		
+
 		float testCyclesPerSecond = -15.0f; //negative test
 		float testMillisPerCycle = (1.0f / testCyclesPerSecond) * 1000;
 		tc.setCyclesPerSecond(testCyclesPerSecond);
@@ -51,7 +49,6 @@ public class TestClock {
 
 	@Test
 	public void testReset() {
-		//fail("Not yet implemented");
 		long startTime = System.nanoTime() / 1000000L;
 		tc.reset();
 		long endTime = System.nanoTime() / 1000000L;
@@ -63,7 +60,6 @@ public class TestClock {
 
 	@Test
 	public void testUpdate() {
-		//fail("Not yet implemented");
 		long testStartUpdate = System.nanoTime() / 1000000L;
 		tc.update();
 		long testEndUpdate = System.nanoTime() / 1000000L;
@@ -91,7 +87,7 @@ public class TestClock {
 
 	@Test
 	public void testSetPaused() {
-		//fail("Not yet implemented");
+
 		boolean paused = true;
 		tc.setPaused(paused);
 		assertEquals(paused, tc.isPaused());
@@ -99,13 +95,17 @@ public class TestClock {
 
 	@Test
 	public void testIsPaused() {
-		//fail("Not yet implemented");
+		tc.isPaused = false;
 		assertFalse(tc.isPaused());
+		
+
+		tc.isPaused = true;
+		assertTrue(tc.isPaused());
 	}
 
 	@Test
 	public void testHasElapsedCycle() {
-		//fail("Not yet implemented");
+
 		tc.hasElapsedCycle();
 		int testElapsedCycles = 0;
 		long testStartUpdate = System.nanoTime() / 1000000L;
@@ -122,22 +122,33 @@ public class TestClock {
 		boolean testZero = false;
 		
 		if(testElapsedCycles > 0){
-		testElapsedCycles--;
-		assertEquals(testElapsedCycles, tc.elapsedCycles - 1);
-		assertEquals(testGreaterThanZero, tc.hasElapsedCycle());
+			testElapsedCycles--;
+			assertEquals(testElapsedCycles, tc.elapsedCycles - 1);
+			assertEquals(testGreaterThanZero, tc.hasElapsedCycle());
 		}
 		else {
-		assertEquals(testZero, tc.hasElapsedCycle());
+			assertEquals(testZero, tc.hasElapsedCycle());
 		}
 	}
 
 	
 	@Test
 	public void testPeekElapsedCycle() {
-		//fail("Not yet implemented");
-		//tc.peekElapsedCycle(); 
+
 		boolean testGreaterThanZero = false;
 		assertEquals(testGreaterThanZero, tc.peekElapsedCycle());
+
+		tc.elapsedCycles = 5;
+		assertTrue(tc.peekElapsedCycle());
+
+		tc.elapsedCycles = 1;
+		assertTrue(tc.peekElapsedCycle());
+		
+		tc.elapsedCycles = 0;
+		assertFalse(tc.peekElapsedCycle());
+		
+		tc.elapsedCycles = -1;
+		assertFalse(tc.peekElapsedCycle());
 		
 	}
 
