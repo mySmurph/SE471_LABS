@@ -20,21 +20,35 @@ public class TestClock {
 	public void tearDown() throws Exception {
 		tc = null;
 	}
-/*
+
 	@Test
 	public void testClock() {
 		//fail("Not yet implemented");
-		float testCyclesPerSecond;
-		tc.setCyclesPerSecond(testCyclesPerSecond);
-		assertEquals(testCyclesPerSecond, tc.);
+		testSetCyclesPerSecond();
+		testReset();
 	}
-/*
+
+
 	@Test
 	public void testSetCyclesPerSecond() {
 		//fail("Not yet implemented");
-		assertEquals(0, tc.setCyclesPerSecond(0.0));
+		
+		float testCyclesPerSecond = -15.0f; //negative test
+		float testMillisPerCycle = (1.0f / testCyclesPerSecond) * 1000;
+		tc.setCyclesPerSecond(testCyclesPerSecond);
+		assertEquals(testMillisPerCycle, tc.millisPerCycle, 0.0002f);
+		
+		testCyclesPerSecond = 0.0f; //zero test
+		testMillisPerCycle = (1.0f / testCyclesPerSecond) * 1000;
+		tc.setCyclesPerSecond(testCyclesPerSecond);
+		assertEquals(testMillisPerCycle, tc.millisPerCycle, 0.0002f);
+		
+		testCyclesPerSecond = 15.0f; //positive test
+		testMillisPerCycle = (1.0f / testCyclesPerSecond) * 1000;
+		tc.setCyclesPerSecond(testCyclesPerSecond);
+		assertEquals(testMillisPerCycle, tc.millisPerCycle, 0.0002f);
 	}
-*/
+
 	@Test
 	public void testReset() {
 		//fail("Not yet implemented");
@@ -44,16 +58,37 @@ public class TestClock {
 		assertEquals(0, tc.elapsedCycles);
 		assertEquals(0f, tc.excessCycles, 0.0002f);
 		assertTrue(startTime <= tc.lastUpdate && endTime >= tc.lastUpdate);
-		assertEquals(false, tc.isPaused);
-		
+		assertEquals(false, tc.isPaused);	
 	}
-/*
+
 	@Test
 	public void testUpdate() {
-		fail("Not yet implemented");
-		assertFalse(tc.lastUpdate == tc.getCurrentTime());
+		//fail("Not yet implemented");
+		long testStartUpdate = System.nanoTime() / 1000000L;
+		tc.update();
+		long testEndUpdate = System.nanoTime() / 1000000L;
+		
+		float testCyclesPerSecond = 0.0f; //zero test
+		float testMillisPerCycle = (1.0f / testCyclesPerSecond) * 1000;
+		int testElapsedCycles = 0;
+		
+		float testExcessCycles = 0.0f;
+		float testDelta = (float)(testEndUpdate - testStartUpdate) + testExcessCycles;
+		float delta = (float)(Clock.getCurrentTime() - tc.lastUpdate) + tc.excessCycles;
+		assertEquals(testDelta, delta, 0.0002f);
+		
+		if(!tc.isPaused) {
+			testElapsedCycles += (int)Math.floor(testDelta / testMillisPerCycle);
+			testExcessCycles = testDelta % testMillisPerCycle;
+			tc.elapsedCycles += (int)Math.floor(delta / tc.millisPerCycle);
+			tc.excessCycles = delta % testMillisPerCycle; 
+			assertEquals(testElapsedCycles, tc.elapsedCycles);
+			assertEquals(testExcessCycles, tc.excessCycles, 0.0002f);
+		}
+		testEndUpdate = testStartUpdate;
+		assertEquals(testEndUpdate, tc.lastUpdate);
 	}
-*/
+
 	@Test
 	public void testSetPaused() {
 		//fail("Not yet implemented");
@@ -61,24 +96,49 @@ public class TestClock {
 		tc.setPaused(paused);
 		assertEquals(paused, tc.isPaused());
 	}
-/*
+
 	@Test
 	public void testIsPaused() {
-		fail("Not yet implemented");
-		
-		assertEquals(true, tc.isPaused());
+		//fail("Not yet implemented");
+		assertFalse(tc.isPaused());
 	}
 
 	@Test
 	public void testHasElapsedCycle() {
-		fail("Not yet implemented");
-		assertFalse(tc.hasElapsedCycle());
+		//fail("Not yet implemented");
+		tc.hasElapsedCycle();
+		int testElapsedCycles = 0;
+		long testStartUpdate = System.nanoTime() / 1000000L;
+		float testExcessCycles = 0.0f;
+		long testEndUpdate = System.nanoTime() / 1000000L;
+		float testDelta = (float)(testEndUpdate - testStartUpdate) + testExcessCycles;
+		
+		float testCyclesPerSecond = 0.0f; //zero test
+		float testMillisPerCycle = (1.0f / testCyclesPerSecond) * 1000;
+		
+		testElapsedCycles = (int)Math.floor(testDelta / testMillisPerCycle);
+		
+		boolean testGreaterThanZero = true;
+		boolean testZero = false;
+		
+		if(testElapsedCycles > 0){
+		testElapsedCycles--;
+		assertEquals(testElapsedCycles, tc.elapsedCycles - 1);
+		assertEquals(testGreaterThanZero, tc.hasElapsedCycle());
+		}
+		else {
+		assertEquals(testZero, tc.hasElapsedCycle());
+		}
 	}
 
+	
 	@Test
 	public void testPeekElapsedCycle() {
-		fail("Not yet implemented");
-		assertFalse(
+		//fail("Not yet implemented");
+		//tc.peekElapsedCycle(); 
+		boolean testGreaterThanZero = false;
+		assertEquals(testGreaterThanZero, tc.peekElapsedCycle());
+		
 	}
-*/
+
 }
