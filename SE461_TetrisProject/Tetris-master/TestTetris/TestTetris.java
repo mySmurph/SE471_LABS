@@ -268,7 +268,7 @@ public class TestTetris {
 					tet.dispose();
 					
 				} catch (AWTException e) {
-
+					fail("start() has an error");
 					e.printStackTrace();
 				};
 				

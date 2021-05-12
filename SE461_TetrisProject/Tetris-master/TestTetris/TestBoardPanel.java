@@ -990,7 +990,7 @@ public class TestBoardPanel {
 		frame.pack();
 		frame.setVisible(true);
 		
-//		Scanner testerInput = new Scanner(System.in);
+		Scanner testerInput = new Scanner(System.in);
 		// State [0] Active board
 		t.isPaused = false;
 		t.isNewGame = false;
@@ -1063,7 +1063,7 @@ public class TestBoardPanel {
 			bp.repaint();
 			assertEquals('p', getTesterInput(testerInput));
 
-//		testerInput.close();
+		testerInput.close();
 		frame.dispose();
 	}
 	private int m = 0;
@@ -1077,9 +1077,9 @@ public class TestBoardPanel {
 				+ "[e] New Empty Game Board (no tiles painted) \n"
 				+ "[a] Active Game Board (at least 1 tile painted)\n"
 				+ "[x] None of the above");
-//		return testerInput.nextLine().toLowerCase().charAt(0);
-		char[] a = {'e', 'a', 'g', 't', 't', 'p', 'p', 'p', 'p'};
-		return a[m++];
+		return testerInput.nextLine().toLowerCase().charAt(0);
+//		char[] a = {'e', 'a', 'g', 't', 't', 'p', 'p', 'p', 'p'};
+//		return a[m++];
 		
 	}
 

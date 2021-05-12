@@ -60,9 +60,7 @@ public class TestSidePanel {
 		frame.dispose();
 	}
 
-	TileType[] ti_tt = {TileType.TypeO, TileType.TypeS, null};
-	int[] ti_l= {5, 0, -2};
-	int[] ti_s = {123, -321, 0};
+
 	@Test
 	public void testPaintComponentGraphics() {
 
@@ -111,31 +109,28 @@ public class TestSidePanel {
 		    		+ "[t] T\n"
 		    		+ "[x] None of the above");
 		    
-//		    TileType actualTile = null;
-//		    switch(testerInput.nextLine().toLowerCase().charAt(0)) {
-//			    case 'i':	actualTile = TileType.TypeI; break;
-//			    case 'o':	actualTile = TileType.TypeO; break;
-//			    case 'j':	actualTile = TileType.TypeJ; break;
-//			    case 'l':	actualTile = TileType.TypeL; break;
-//			    case 's':	actualTile = TileType.TypeS; break;
-//			    case 'z':	actualTile = TileType.TypeZ; break;
-//			    case 't':	actualTile = TileType.TypeT; break;
-//			    default:	break;
-//		    }
-//		    
-//		    System.out.println("What is the value printed next to \"Level\"?");
-//		    String actualLevel = testerInput.nextLine().trim();
-//
-//		    System.out.println("What is the value printed next to \"Score\"?");
-//		    String actualScore = testerInput.nextLine().trim();
-//		    
-//		    assertEquals(expectedTile[i], actualTile);
-//		    assertEquals(expectedScore[i], Integer.parseInt(actualScore));
-//		    assertEquals(expectedLevel[i], Integer.parseInt(actualLevel));
+		    TileType actualTile = null;
+		    switch(testerInput.nextLine().toLowerCase().charAt(0)) {
+			    case 'i':	actualTile = TileType.TypeI; break;
+			    case 'o':	actualTile = TileType.TypeO; break;
+			    case 'j':	actualTile = TileType.TypeJ; break;
+			    case 'l':	actualTile = TileType.TypeL; break;
+			    case 's':	actualTile = TileType.TypeS; break;
+			    case 'z':	actualTile = TileType.TypeZ; break;
+			    case 't':	actualTile = TileType.TypeT; break;
+			    default:	break;
+		    }
 		    
-		    assertEquals(expectedTile[i], ti_tt[i]);
-		    assertEquals(expectedScore[i], ti_s[i]);
-		    assertEquals(expectedLevel[i], ti_l[i]);
+		    System.out.println("What is the value printed next to \"Level\"?");
+		    String actualLevel = testerInput.nextLine().trim();
+
+		    System.out.println("What is the value printed next to \"Score\"?");
+		    String actualScore = testerInput.nextLine().trim();
+		    
+		    assertEquals(expectedTile[i], actualTile);
+		    assertEquals(expectedScore[i], Integer.parseInt(actualScore));
+		    assertEquals(expectedLevel[i], Integer.parseInt(actualLevel));
+		    
 		}
 	
 		frame.dispose();

@@ -151,6 +151,7 @@ public class TestTileType {
 	@Test
 	public void testGetLeftInset() {
 		//testing values 0-3 for tile type I, passing values 0-3 because max length is 3
+		tt = TileType.TypeI;
 		
 		assertEquals(1,tt.getLeftInset(3));
 		assertEquals(0,tt.getLeftInset(2));
